@@ -4,14 +4,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-BOT_TOKEN = str(os.getenv("BOT_TOKEN"))
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 admins = [
     985485455
 ]
 
 # for working notifications
 api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
-users_id = [985485455]
+users_id = [985485455, 722292238]
 
 ip = os.getenv("ip")
 
