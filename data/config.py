@@ -9,6 +9,10 @@ admins = [
     985485455
 ]
 
+# for working notifications
+api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
+users_id = [985485455]
+
 ip = os.getenv("ip")
 
 aiogram_redis = {

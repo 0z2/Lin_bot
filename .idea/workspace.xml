@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="updates">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_07_2020_22_43_[Default_Changelist]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_07_2020_22_43_[Default_Changelist]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_07_2020_22_43__Default_Changelist_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/udemy_course.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/users/health.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/users/language.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/users/sport.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/users/studying.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/users/work.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/help.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="ProjectId" id="1eKEbeHvPI5Fu6Y6Ugqj0usPCtq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../t_bot" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="udemy_course" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Ozz\PycharmProjects\t_bot\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="udemy_course" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/config.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.config" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Ozz\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="" />
+      <created>1594061957831</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594061957831</updated>
+    </task>
+    <task id="LOCAL-00001" summary="updates">
+      <created>1594525851616</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594525851616</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_WIDTH">
+                <map>
+                  <entry key="2" value="82" />
+                  <entry key="3" value="82" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="669" y="114" key="#app" timestamp="1594226222503">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="114" key="#app/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594226222503" />
+    <state x="648" y="266" key="FileChooserDialogImpl" timestamp="1595768372643">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="648" y="266" key="FileChooserDialogImpl/0.0.1680.1010@0.0.1680.1010" timestamp="1595768372643" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544511455" />
+    <state x="784" y="438" key="Github.CreateGistDialog" timestamp="1594543295593">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
+    <state width="1898" height="277" key="GridCell.Tab.0.bottom" timestamp="1594522503000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+    <state width="1898" height="277" key="GridCell.Tab.0.center" timestamp="1594522503000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+    <state width="1898" height="277" key="GridCell.Tab.0.left" timestamp="1594522503000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+    <state width="1898" height="277" key="GridCell.Tab.0.right" timestamp="1594522503000">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+    <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="184" y="85" key="MergeDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594230236247" />
+    <state x="752" y="221" key="RollbackChangesDialog" timestamp="1594521399809">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="752" y="221" key="RollbackChangesDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594521399809" />
+    <state x="461" y="229" key="SettingsEditor" timestamp="1594544498681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
+    <state x="432" y="237" key="Vcs.Push.Dialog.v2" timestamp="1595782157137">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
+    <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1594235347514">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594235347514" />
+    <state x="666" y="119" width="587" height="801" key="find.popup" timestamp="1594523909328">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="119" width="587" height="801" key="find.popup/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594523909328" />
+    <state x="740" y="232" key="git4idea.branch.GitSmartOperationDialog" timestamp="1594230187559">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594230187559" />
+    <state x="790" y="310" key="svn.repositoryBrowser" timestamp="1594544194624">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="790" y="310" key="svn.repositoryBrowser/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544194624" />
+    <state x="736" y="383" key="svn4idea.checkout.options" timestamp="1594543246360">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="383" key="svn4idea.checkout.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543246360" />
+    <state x="782" y="384" key="svn4idea.export.options" timestamp="1594543221692">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="782" y="384" key="svn4idea.export.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543221692" />
+    <state x="820" y="293" key="svn4idea.import.options" timestamp="1594544181271">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="820" y="293" key="svn4idea.import.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544181271" />
+  </component>
+</project>
