@@ -15,10 +15,14 @@ def job():
         try:
             notifying = requests.get(api_link + f'/sendMessage?chat_id={user}&text=Привет, заполним ачивки за {yesterday_with_dots}?\n'
                                                  f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
-                                                 f'/sport{yesterday_with_slash} - за занятия спортом ⛳\n'
+                                                 f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
                                                  f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'
                                                  f'/studying{yesterday_with_slash} - за изучение прикладного, технического 🎓\n'
                                                  f'/health{yesterday_with_slash} - за занятие здоровьем 💊\n'
+                                                 f'/proper_nutrition{yesterday_with_slash} - полезная еда 🥙\n'
+                                                 f'/personal_care{yesterday_with_slash} - уход за собой 💆‍♀💇‍♂\n'
+                                                 f'/music{yesterday_with_slash} - за занятие музыкой 🎸\n'
+                                                 f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
                                       )
         except Exception as err:
             pass

@@ -19,9 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="updates">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="add Tanya and make notifying and answering in one project, but like two different scripts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/health.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/health.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/language.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/sport.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/sport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/studying.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/studying.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/work.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/work.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_bot_notify.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_bot_notify.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,14 +64,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/handlers/users" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handlers/users" />
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
@@ -168,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596289220640</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add Tanya and make notifying and answering in one project, but like two different scripts">
+      <created>1596306065108</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1596306065108</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,7 +205,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="add Tanya and make notifying and answering in one project, but like two different scripts" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Tanya and make notifying and answering in one project, but like two different scripts" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -225,26 +239,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1377" height="227" key="GridCell.Tab.0.bottom" timestamp="1596305942048">
+    <state width="1377" height="227" key="GridCell.Tab.0.bottom" timestamp="1596564743756">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1596305942048" />
-    <state width="1377" height="227" key="GridCell.Tab.0.center" timestamp="1596305942047">
+    <state width="1377" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
+    <state width="1377" height="227" key="GridCell.Tab.0.center" timestamp="1596564743756">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1596305942047" />
-    <state width="1377" height="227" key="GridCell.Tab.0.left" timestamp="1596305942047">
+    <state width="1377" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
+    <state width="1377" height="227" key="GridCell.Tab.0.left" timestamp="1596564743755">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1596305942047" />
-    <state width="1377" height="227" key="GridCell.Tab.0.right" timestamp="1596305942047">
+    <state width="1377" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1596564743755" />
+    <state width="1377" height="227" key="GridCell.Tab.0.right" timestamp="1596564743756">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1596305942047" />
+    <state width="1377" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -258,10 +272,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="432" y="237" key="Vcs.Push.Dialog.v2" timestamp="1595782157137">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596306069375">
+      <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1596306069375" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
