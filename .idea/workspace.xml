@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="add Tanya and make notifying and answering in one project, but like two different scripts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/health.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/health.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/language.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/sport.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/sport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/studying.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/studying.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/work.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/work.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_bot_notify.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_bot_notify.py" afterDir="false" />
-    </list>
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="added four new achievments" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596306065108</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added four new achievments">
+      <created>1596564813913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596564813913</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,7 +204,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="updates" />
     <MESSAGE value="add Tanya and make notifying and answering in one project, but like two different scripts" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Tanya and make notifying and answering in one project, but like two different scripts" />
+    <MESSAGE value="added four new achievments" />
+    <option name="LAST_COMMIT_MESSAGE" value="added four new achievments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -272,11 +271,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596306069375">
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596733305079">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1596306069375" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1596733305079" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
