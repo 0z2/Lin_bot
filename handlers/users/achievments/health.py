@@ -4,7 +4,7 @@ from loader import dp
 @dp.message_handler(filters.RegexpCommandsFilter(regexp_commands=['health_(\d\d_\d\d_\d\d\d\d)']))
 async def add_achive(message: types.Message, regexp_command):
     date_of_achive = regexp_command.group(1).replace("_", ".")
-    await message.answer(f'Ачивка <b></b> за <b>{date_of_achive}</b> добавлена 💊')
+    await message.answer(f'Ачивка <b>Health</b> за <b>{date_of_achive}</b> добавлена 💊')
     await dp.bot.send_message(985485455,
                               f"Пользователь {message.from_user.full_name} добавил ачивку Health за {date_of_achive}")
 
