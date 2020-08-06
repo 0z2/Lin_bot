@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="added four new achievments" />
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="added four new achievments">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/delicious_house.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/delicious_house.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/echo.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/echo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/health.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/health.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/language.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/music.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/music.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/personal_care.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/personal_care.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/proper_nutrition.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/proper_nutrition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/sport.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/sport.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/studying.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/studying.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/work.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/work.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,6 +73,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handlers/users/achievments" />
+      <recent name="$PROJECT_DIR$/handlers/users" />
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -67,7 +82,7 @@
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test_bot_notify">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,8 +148,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_bot_notify" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.test_bot_notify" />
+        <item itemvalue="Python.config" />
+        <item itemvalue="Python.test_bot_notify" />
         <item itemvalue="Python.config" />
       </list>
     </recent_temporary>
@@ -179,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596564813913</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added four new achievments">
+      <created>1596733338486</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1596733338486</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,26 +262,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1377" height="227" key="GridCell.Tab.0.bottom" timestamp="1596564743756">
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1596733696922">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
-    <state width="1377" height="227" key="GridCell.Tab.0.center" timestamp="1596564743756">
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1596733696922" />
+    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1596733696917">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
-    <state width="1377" height="227" key="GridCell.Tab.0.left" timestamp="1596564743755">
+    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1596733696917" />
+    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1596733696917">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1596564743755" />
-    <state width="1377" height="227" key="GridCell.Tab.0.right" timestamp="1596564743756">
+    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1596733696917" />
+    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1596733696922">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1377" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1596564743756" />
+    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1596733696922" />
     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -271,11 +295,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596733305079">
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1596733730817">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1596733305079" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1596733730817" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
