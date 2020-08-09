@@ -17,7 +17,7 @@ def job():
                                                  f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
                                                  f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
                                                  f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'
-                                                 f'/studying{yesterday_with_slash} - за изучение прикладного, технического 🎓\n'
+                                                 f'/studying{yesterday_with_slash} - за учёбу 🎓\n'
                                                  f'/health{yesterday_with_slash} - за занятие здоровьем 💊\n'
                                                  f'/proper_nutrition{yesterday_with_slash} - полезная еда 🥙\n'
                                                  f'/personal_care{yesterday_with_slash} - уход за собой 💆‍♀💇‍♂\n'
