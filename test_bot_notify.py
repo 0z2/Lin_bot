@@ -27,7 +27,7 @@ def job():
         except Exception as err:
             pass
 
-#schedule.every(0.2).minutes.do(job)
+#schedule.every(1).minutes.do(job)
 #schedule.every().hour.do(job)
 schedule.every().day.at("10:00").do(job)
 #schedule.every().monday.do(job)

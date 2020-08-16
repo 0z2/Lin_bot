@@ -62,13 +62,26 @@ sheetId = sheetList[0]['properties']['sheetId']
 #
 # print('Мы будем использовать лист с Id = ', sheetId)
 
-async def add_in_achive(date, name_of_ach, name_of_user):
-    ### сверху добавил async и ниже await с слипом и пропала ошибка "object NoneType can't be used in 'await' expression"
+async def get_value_from_table():
     await asyncio.sleep(1)
+    ranges = ["Лист номер один!I1:I1"]
+
+    results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
+                                                       ranges=ranges,
+                                                       valueRenderOption='FORMATTED_VALUE',
+                                                       dateTimeRenderOption='FORMATTED_STRING').execute()
+    sheet_values = results['valueRanges'][0]['values']
+    return sheet_values[0][0]
+
+
+async def add_in_achive(date, name_of_ach, name_of_user):
+    # сверху добавил async и ниже await с слипом и пропала ошибка "object NoneType can't be used in 'await' expression"
+    await asyncio.sleep(1)
+    last_line = await get_value_from_table()
     results = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
         "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
         "data": [
-            {"range": "Лист номер один!B2:D5",
+            {"range": f"Лист номер один!B{int(last_line)+1}:D{int(last_line)+1}",
              "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
              "values": [
                         [f"{date}", f"{name_of_ach}", f"{name_of_user}"], # Заполняем первую строку
@@ -76,5 +89,14 @@ async def add_in_achive(date, name_of_ach, name_of_user):
                    ]}
     ]
     }).execute()
-
-
+    results2 = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
+        "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
+        "data": [
+            {"range": f"Лист номер один!I1:I1",
+             "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
+             "values": [
+                        [f"{int(last_line)+1}"], # Заполняем первую строку
+                        #['25', "=6*6", "=sin(3,14/2)"]  # Заполняем вторую строку
+                   ]}
+    ]
+    }).execute()
