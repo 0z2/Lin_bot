@@ -13,7 +13,7 @@ def job():
     yesterday_with_dots = yesterday.strftime("%d.%m.%Y")
     for user in users_id:
         try:
-            notifying = requests.get(api_link + f'/sendMessage?chat_id={user}&text=Привет, заполним ачивки за {yesterday_with_dots}?\n'
+            notifying = requests.get(api_link + f'/sendMessage?chat_id={user[0]}&text=Привет, заполним ачивки за {yesterday_with_dots}?\n'
                                                  f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
                                                  f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
                                                  f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'

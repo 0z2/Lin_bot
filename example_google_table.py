@@ -26,11 +26,11 @@ spreadsheetId = '1pxrkIrlNgUnhTK1jj00iYxu5jlpl79nEy77yvntckvo' #spreadsheet['spr
 print('https://docs.google.com/spreadsheets/d/' + spreadsheetId)
 #
 driveService = apiclient.discovery.build('drive', 'v3', http = httpAuth) # Выбираем работу с Google Drive и 3 версию API
-access = driveService.permissions().create(
-    fileId = spreadsheetId,
-    body = {'type': 'user', 'role': 'writer', 'emailAddress': 'mozzgishere@gmail.com'},  # Открываем доступ на редактирование
-    fields = 'id'
-).execute()
+# access = driveService.permissions().create(
+#     fileId = spreadsheetId,
+#     body = {'type': 'user', 'role': 'writer', 'emailAddress': 'mozzgishere@gmail.com'},  # Открываем доступ на редактирование
+#     fields = 'id'
+# ).execute()
 #
 # # Добавление листа
 # results = service.spreadsheets().batchUpdate(
@@ -53,18 +53,18 @@ access = driveService.permissions().create(
 #     }).execute()
 #
 # # Получаем список листов, их Id и название
-spreadsheet = service.spreadsheets().get(spreadsheetId=spreadsheetId).execute()
-sheetList = spreadsheet.get('sheets')
+#spreadsheet = service.spreadsheets().get(spreadsheetId=spreadsheetId).execute()
+#sheetList = spreadsheet.get('sheets')
 # for sheet in sheetList:
 #     print(sheet['properties']['sheetId'], sheet['properties']['title'])
 #
-sheetId = sheetList[0]['properties']['sheetId']
+#sheetId = sheetList[0]['properties']['sheetId']
 #
 # print('Мы будем использовать лист с Id = ', sheetId)
 
 async def get_value_from_table():
     await asyncio.sleep(1)
-    ranges = ["Лист номер один!I1:I1"]
+    ranges = ["Ачивки!I1:I1"]
 
     results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
                                                        ranges=ranges,
@@ -81,7 +81,7 @@ async def add_in_achive(date, name_of_ach, name_of_user):
     results = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
         "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
         "data": [
-            {"range": f"Лист номер один!B{int(last_line)+1}:D{int(last_line)+1}",
+            {"range": f"Ачивки!B{int(last_line)+1}:D{int(last_line)+1}",
              "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
              "values": [
                         [f"{date}", f"{name_of_ach}", f"{name_of_user}"], # Заполняем первую строку
@@ -89,14 +89,46 @@ async def add_in_achive(date, name_of_ach, name_of_user):
                    ]}
     ]
     }).execute()
-    results2 = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
-        "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
-        "data": [
-            {"range": f"Лист номер один!I1:I1",
-             "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
-             "values": [
-                        [f"{int(last_line)+1}"], # Заполняем первую строку
-                        #['25', "=6*6", "=sin(3,14/2)"]  # Заполняем вторую строку
-                   ]}
-    ]
-    }).execute()
+    ### часть ниже была нужна, чтобы записывать последнюю записанную строку. В итоге сделал чтобы в самой табличке
+    ### подсчитывалось кол-во заполненных строк
+    # results2 = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
+    #     "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
+    #     "data": [
+    #         {"range": f"Ачивки!I1:I1",
+    #          "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
+    #          "values": [
+    #                     [f"{int(last_line)+1}"], # Заполняем первую строку
+    #                     #['25', "=6*6", "=sin(3,14/2)"]  # Заполняем вторую строку
+    #                ]}
+    # ]
+    # }).execute()
+
+class UsersFromGSheet:
+    def get_amount_of_users(self):
+        #await asyncio.sleep(1)
+        ranges = ["Пользователи!I1:I1"]
+
+        results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
+                                                           ranges=ranges,
+                                                           valueRenderOption='FORMATTED_VALUE',
+                                                           dateTimeRenderOption='FORMATTED_STRING').execute()
+        sheet_values = results['valueRanges'][0]['values']
+
+        return sheet_values[0][0]
+    def id_of_users(self):
+        #await asyncio.sleep(1)
+        ranges = ["Пользователи!B2:B100"] # тут нужно увеличить кол-во получаемых id
+
+        results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
+                                                           ranges=ranges,
+                                                           valueRenderOption='FORMATTED_VALUE',
+                                                           dateTimeRenderOption='FORMATTED_STRING').execute()
+        sheet_values = results['valueRanges'][0]['values']
+        return sheet_values
+
+users = UsersFromGSheet()
+
+#print(users.get_amount_of_users())
+
+#for user in users.id_of_users():
+#    print(user[0])

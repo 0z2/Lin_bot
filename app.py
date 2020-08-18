@@ -4,6 +4,7 @@ from utils.set_bot_commands import set_default_commands
 async def on_startup(dp):
     import filters
     import middlewares
+
     filters.setup(dp)
     middlewares.setup(dp)
 

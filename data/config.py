@@ -1,6 +1,7 @@
 import os
 
 from dotenv import load_dotenv
+from example_google_table import users
 
 load_dotenv()
 
@@ -11,7 +12,10 @@ admins = [
 
 # for working notifications
 api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
-users_id = [985485455, 722292238]
+users_id = users.id_of_users()
+
+
+
 
 ip = os.getenv("ip")
 
