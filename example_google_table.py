@@ -74,17 +74,17 @@ async def get_value_from_table():
     return sheet_values[0][0]
 
 
-async def add_in_achive(date, name_of_ach, name_of_user):
+async def add_in_achive(date, name_of_ach, name_of_user, id_in_tg):
     # сверху добавил async и ниже await с слипом и пропала ошибка "object NoneType can't be used in 'await' expression"
     await asyncio.sleep(1)
     last_line = await get_value_from_table()
     results = service.spreadsheets().values().batchUpdate(spreadsheetId = spreadsheetId, body = {
         "valueInputOption": "USER_ENTERED", # Данные воспринимаются, как вводимые пользователем (считается значение формул)
         "data": [
-            {"range": f"Ачивки!B{int(last_line)+1}:D{int(last_line)+1}",
+            {"range": f"Ачивки!B{int(last_line)+1}:E{int(last_line)+1}",
              "majorDimension": "ROWS",     # Сначала заполнять строки, затем столбцы
              "values": [
-                        [f"{date}", f"{name_of_ach}", f"{name_of_user}"], # Заполняем первую строку
+                        [f"{date}", f"{name_of_ach}", f"{name_of_user}", f"{id_in_tg}"] # Заполняем первую строку
                         #['25', "=6*6", "=sin(3,14/2)"]  # Заполняем вторую строку
                    ]}
     ]
@@ -125,6 +125,17 @@ class UsersFromGSheet:
                                                            dateTimeRenderOption='FORMATTED_STRING').execute()
         sheet_values = results['valueRanges'][0]['values']
         return sheet_values
+    def get_list_of_achievements(self):
+        # Получение списка ачивок, даты и пользователя
+        #await asyncio.sleep(1)
+        ranges = ["Ачивки!B2:D1000"] # тут нужно увеличить кол-во получаемых id
+
+        results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
+                                                           ranges=ranges,
+                                                           valueRenderOption='FORMATTED_VALUE',
+                                                           dateTimeRenderOption='FORMATTED_STRING').execute()
+        sheet_values = results['valueRanges'][0]['values']
+        return sheet_values
 
 users = UsersFromGSheet()
 
@@ -132,3 +143,5 @@ users = UsersFromGSheet()
 
 #for user in users.id_of_users():
 #    print(user[0])
+
+print(users.get_list_of_achievements())

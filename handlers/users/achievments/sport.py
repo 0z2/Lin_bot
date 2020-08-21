@@ -8,7 +8,7 @@ async def send_welcome(message: types.Message, regexp_command):
     await message.answer(f'Ачивка Sport за <code>{date_of_achive}</code> добавлена ⛳')
     await dp.bot.send_message(985485455,
                               f"Пользователь {message.from_user.full_name} добавил ачивку Sport за {date_of_achive}")
-    await add_in_achive(date_of_achive, 'Sport', message.from_user.full_name)
+    await add_in_achive(date_of_achive, 'Sport', message.from_user.full_name, message.from_user.id)
 
 # @dp.message_handler(text='/sport')
 # async def work(message: types.Message):
