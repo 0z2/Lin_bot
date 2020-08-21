@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="sending notification all users from GSheet">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="new_folders_for_handlers" />
+        <entry key="$PROJECT_DIR$" value="sinc_with_google_sheets" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -182,10 +182,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_bot_notify" />
-        <item itemvalue="Python.app" />
-        <item itemvalue="Python.example_google_table" />
         <item itemvalue="Python.send_photo_with_results" />
+        <item itemvalue="Python.example_google_table" />
         <item itemvalue="Python.config" />
+        <item itemvalue="Python.app" />
       </list>
     </recent_temporary>
   </component>
