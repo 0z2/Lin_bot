@@ -110,6 +110,8 @@ ENV/
 env.bak/
 venv.bak/
 
+data/google_sheet_auth.json
+
 # Spyder project settings
 .spyderproject
 .spyproject
