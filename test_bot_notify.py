@@ -23,6 +23,7 @@ def job():
                                                  f'/personal_care{yesterday_with_slash} - уход за собой 💆‍♀💇‍♂\n'
                                                  f'/music{yesterday_with_slash} - за занятие музыкой 🎸\n'
                                                  f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
+                                                 f'/yoga{yesterday_with_slash} - за занятия йогой 👩‍❤️‍👨🏡\n'
                                       )
         except Exception as err:
             pass

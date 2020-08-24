@@ -19,9 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="trying to merge )">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="now with achievments started to add id of user">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_08_2020,_11_39_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_15_08_2020__11_39__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_08_2020,_21_17_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_16_08_2020__21_17__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example_google_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/example_google_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/delicious_house.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/delicious_house.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/health.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/health.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/language.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/language.py" afterDir="false" />
@@ -31,6 +37,8 @@
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/sport.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/sport.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/studying.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/studying.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers/users/achievments/work.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/achievments/work.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/send_photo_with_results.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_for_week.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_bot_notify.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_bot_notify.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,23 +75,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/handlers/users/achievments" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/venv" />
-      <recent name="$PROJECT_DIR$/handlers/users" />
-      <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/handlers/users" />
       <recent name="$PROJECT_DIR$/handlers/users/achievments" />
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/handlers/users/achievments" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/venv" />
+      <recent name="$PROJECT_DIR$/handlers/users" />
+      <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.result_for_week">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="send_photo_with_results" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="result_for_week" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,7 +168,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/send_photo_with_results.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/result_for_week.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -191,10 +200,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
+        <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.example_google_table" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.test_bot_notify" />
-        <item itemvalue="Python.send_photo_with_results" />
         <item itemvalue="Python.config" />
       </list>
     </recent_temporary>
@@ -288,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597999619883</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="now with achievments started to add id of user">
+      <created>1598005053477</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598005053477</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,7 +334,8 @@
     <MESSAGE value="added writing in google sheets" />
     <MESSAGE value="sending notification all users from GSheet" />
     <MESSAGE value="trying to merge )" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to merge )" />
+    <MESSAGE value="now with achievments started to add id of user" />
+    <option name="LAST_COMMIT_MESSAGE" value="now with achievments started to add id of user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -351,30 +368,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1598004700999">
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1598274476829">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598004700999" />
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598274476829" />
     <state width="863" height="227" key="GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1598004700999">
+    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1598274476827">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1598004700999" />
+    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1598274476827" />
     <state width="863" height="227" key="GridCell.Tab.0.center/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1598004700998">
+    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1598274476827">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1598004700998" />
+    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1598274476827" />
     <state width="863" height="227" key="GridCell.Tab.0.left/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1598004700999">
+    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1598274476828">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1598004700999" />
+    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1598274476828" />
     <state width="863" height="227" key="GridCell.Tab.0.right/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598189148354">
+      <screen x="72" y="27" width="1848" height="948" />
+    </state>
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
+    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598189148353">
+      <screen x="72" y="27" width="1848" height="948" />
+    </state>
+    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
+    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598189148353">
+      <screen x="72" y="27" width="1848" height="948" />
+    </state>
+    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
+    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598189148354">
+      <screen x="72" y="27" width="1848" height="948" />
+    </state>
+    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -388,11 +421,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1597999893089">
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598005057587">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1597999893089" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1598005057587" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>

@@ -1,5 +1,4 @@
 # статья с описанием работы - https://habr.com/ru/post/483302/
-
 # Подключаем библиотеки
 import asyncio
 
@@ -115,9 +114,9 @@ class UsersFromGSheet:
         sheet_values = results['valueRanges'][0]['values']
 
         return sheet_values[0][0]
-    def id_of_users(self):
+    def id_and_name_of_users(self):
         #await asyncio.sleep(1)
-        ranges = ["Пользователи!B2:B100"] # тут нужно увеличить кол-во получаемых id
+        ranges = ["Пользователи!B2:C100"] # тут нужно увеличить кол-во получаемых id
 
         results = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
                                                            ranges=ranges,
@@ -144,4 +143,46 @@ users = UsersFromGSheet()
 #for user in users.id_of_users():
 #    print(user[0])
 
-print(users.get_list_of_achievements())
+achievements = users.get_list_of_achievements()
+print(achievements)
+achievements_group_by_date = dict()
+for list in achievements:
+    date_of_achievement = list[0]
+    name_of_user = list[2]
+    name_of_achievement = list[1]
+    # группируем по дате, внутри создаем словари с пользователями и их ачивками за день.
+    # пользователь ключ, ачивки в список
+    if date_of_achievement not in achievements_group_by_date:
+        achievements_group_by_date[date_of_achievement] = {name_of_user: [name_of_achievement]}
+    else:
+        if name_of_user not in achievements_group_by_date[date_of_achievement]:
+            achievements_group_by_date[date_of_achievement][name_of_user] = [name_of_achievement]
+        else:
+            achievements_group_by_date[date_of_achievement][name_of_user].append(name_of_achievement)
+
+print(achievements_group_by_date)
+from datetime import datetime, date, timedelta
+
+achievements_group_by_user_for_week = dict()
+for date in range(1,8):
+    try:
+        number_of_day = (datetime.today() - timedelta(days=date)).strftime("%d.%m.%Y")
+        achievements_by_date = achievements_group_by_date[number_of_day]
+        print(achievements_group_by_date[number_of_day])
+        for key in achievements_by_date:
+            if key not in achievements_group_by_user_for_week:
+                achievements_group_by_user_for_week[key] = achievements_by_date[key]
+            else:
+                achievements_group_by_user_for_week[key] += achievements_by_date[key]
+    except KeyError:
+        pass
+
+print(achievements_group_by_user_for_week)
+
+
+list_of_id_users = users.id_and_name_of_users()
+print(list_of_id_users)
+
+
+
+

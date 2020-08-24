@@ -8,7 +8,7 @@ async def add_achive(message: types.Message, regexp_command):
     await message.answer(f'Ачивка Health за <code>{date_of_achive}</code> добавлена 💊')
     await dp.bot.send_message(985485455,
                               f"Пользователь {message.from_user.full_name} добавил ачивку Health за {date_of_achive}")
-    await add_in_achive(date_of_achive, 'Health', message.from_user.full_name, message.from_user.id)
+    await add_in_achive(date_of_achive, 'health', message.from_user.full_name, message.from_user.id)
 
 # @dp.message_handler(text='/health')
 # async def work(message: types.Message):

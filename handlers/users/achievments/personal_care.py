@@ -8,7 +8,7 @@ async def send_welcome(message: types.Message, regexp_command):
     await message.answer(f'Ачивка Personal_care за <code>{date_of_achive}</code> добавлена 💆‍♀💇‍♂')
     await dp.bot.send_message(985485455,
                               f"Пользователь {message.from_user.full_name} добавил ачивку Personal_care за {date_of_achive}")
-    await add_in_achive(date_of_achive, 'Personal care', message.from_user.full_name, message.from_user.id)
+    await add_in_achive(date_of_achive, 'personal_care', message.from_user.full_name, message.from_user.id)
 
 #async def work(message: types.Message, regexp):
     #regexp_args = regexp
