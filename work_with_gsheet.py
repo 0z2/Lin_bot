@@ -21,7 +21,8 @@ print('https://docs.google.com/spreadsheets/d/' + spreadsheetId)
 driveService = apiclient.discovery.build('drive', 'v3', http=httpAuth)  # Выбираем работу с Google Drive и 3 версию API
 
 
-def get_results_from_gsheet(ranges):
+async def get_results_from_gsheet(ranges):
+    await asyncio.sleep(1)
     # возвращает значения из переданного диапазона
     result = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,
                                                       ranges=ranges,
@@ -30,34 +31,37 @@ def get_results_from_gsheet(ranges):
     return result
 
 
-def get_amount_of_users():
+async def get_amount_of_users():
+    await asyncio.sleep(1)
     ranges = ["Пользователи!I1:I1"]
-    results = get_results_from_gsheet(ranges)
+    results = await get_results_from_gsheet(ranges)
     sheet_values = results['valueRanges'][0]['values']
     return sheet_values[0][0]
 
 
-def get_list_id_and_name_of_users():
+async def get_list_id_and_name_of_users():
     ranges = ["Пользователи!B2:C100"]  # тут нужно увеличить кол-во получаемых id
-    results = get_results_from_gsheet(ranges)
+    results = await get_results_from_gsheet(ranges)
     sheet_values = results['valueRanges'][0]['values']
     return sheet_values
 
 
-def get_amount_of_achievements():
+async def get_amount_of_achievements():
+    await asyncio.sleep(1)
     # эту функция нужная для того чтобы узнать в какую строку записывать следующую ачивку
     # возвращает номер последней строки с записью
     ranges = ["Ачивки!I1:I1"]
-    results = get_results_from_gsheet(ranges)
+    results = await get_results_from_gsheet(ranges)
     sheet_values = results['valueRanges'][0]['values']
     return sheet_values[0][0]
 
 
-def get_list_of_achievements():
+async def get_list_of_achievements():
+    await asyncio.sleep(1)
     # Получение списка ачивок, даты и пользователя
-    last_line_with_achievement = get_amount_of_achievements()
+    last_line_with_achievement = await get_amount_of_achievements()
     ranges = [f"Ачивки!B2:D{last_line_with_achievement}"]  # тут нужно увеличить кол-во получаемых id
-    results = get_results_from_gsheet(ranges)
+    results = await get_results_from_gsheet(ranges)
     sheet_values = results['valueRanges'][0]['values']
     return sheet_values
 
@@ -79,9 +83,10 @@ async def add_new_achievement(date_of_achievement, name_of_achievement, name_of_
     }).execute()
 
 
-def get_achievements_group_by_date():
+async def get_achievements_group_by_date():
+    await asyncio.sleep(1)
     achievements_group_by_date = dict() # ключ - дата, значения - список из ачивки, имени пользователя, и даты
-    list_of_achievements = get_list_of_achievements()
+    list_of_achievements = await get_list_of_achievements()
     # print(list_of_achievements)
     for list in list_of_achievements:
         date_of_achievement = list[0]
@@ -100,12 +105,13 @@ def get_achievements_group_by_date():
     # print(achievements_group_by_date)
 
 
-def get_achievements_group_by_user_for_period(amount_of_days=7):
+async def get_achievements_group_by_user_for_period(amount_of_days=7):
+    await asyncio.sleep(1)
     achievements_group_by_user_for_period = dict() # ключ - имя пользователя, значения - список всех ачивок за период
     for date in range(0, amount_of_days):
         try:
             number_of_day = (datetime.today() - timedelta(days=date)).strftime("%d.%m.%Y")
-            achievements_by_date = get_achievements_group_by_date()[number_of_day]
+            achievements_by_date = await get_achievements_group_by_date()[number_of_day]
             for key in achievements_by_date:
                 if key not in achievements_group_by_user_for_period:
                     achievements_group_by_user_for_period[key] = achievements_by_date[key]
