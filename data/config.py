@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from example_google_table import users
+from work_with_gsheet import get_list_id_and_name_of_users
 
 load_dotenv()
 
@@ -12,7 +12,7 @@ admins = [
 
 # for working notifications
 api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
-users_id = users.id_and_name_of_users()
+users_id = get_list_id_and_name_of_users()
 
 
 
