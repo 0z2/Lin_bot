@@ -40,6 +40,7 @@ async def get_amount_of_users():
 
 
 async def get_list_id_and_name_of_users():
+    await asyncio.sleep(1)
     ranges = ["Пользователи!B2:C100"]  # тут нужно увеличить кол-во получаемых id
     results = await get_results_from_gsheet(ranges)
     sheet_values = results['valueRanges'][0]['values']

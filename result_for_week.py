@@ -1,5 +1,5 @@
 import requests
-from data.config import api_link
+from data.config import api_link, users_id
 
 
 import asyncio
@@ -27,7 +27,7 @@ list_of_achievements = {'delicious_house': 'За вкусный дом 👩‍�
 # возможность просмотра за этот месяц и предыдущий
 def send_achievements_of_users():
 
-    list_of_users = get_list_id_and_name_of_users()
+    list_of_users = users_id
     for user in list_of_users:
         amount_of_achievements_of_user_for_the_week = Counter(get_achievements_group_by_user_for_period()[user[1]])
         # print('Пользователь', user[1])
