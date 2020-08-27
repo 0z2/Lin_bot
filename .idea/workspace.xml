@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="did some refactoring">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="пару багов поправил с асинком, но так и не получилось пока в результатах за неделю поправить ошибку с асинхронностью">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/result_for_week.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_for_week.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_bot_notify.py" beforeDir="false" afterPath="$PROJECT_DIR$/every_day_notyfying.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/work_with_gsheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_with_gsheet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +77,7 @@
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.result_for_week">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -100,17 +100,27 @@
       <method v="2" />
     </configuration>
     <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="udemy_course" />
+      <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/config.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -185,11 +195,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.result_for_week" />
+        <item itemvalue="Python.config" />
+        <item itemvalue="Python.every_day_notyfying" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.work_with_gsheet" />
-        <item itemvalue="Python.result_for_week" />
-        <item itemvalue="Python.every_day_notyfying" />
-        <item itemvalue="Python.config" />
       </list>
     </recent_temporary>
   </component>
@@ -303,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598383604644</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="пару багов поправил с асинком, но так и не получилось пока в результатах за неделю поправить ошибку с асинхронностью">
+      <created>1598386576455</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598386576455</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,7 +353,8 @@
     <MESSAGE value="now with achievments started to add id of user" />
     <MESSAGE value="add opportunity to send result for the week and new achievement 'yoga'" />
     <MESSAGE value="did some refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="did some refactoring" />
+    <MESSAGE value="пару багов поправил с асинком, но так и не получилось пока в результатах за неделю поправить ошибку с асинхронностью" />
+    <option name="LAST_COMMIT_MESSAGE" value="пару багов поправил с асинком, но так и не получилось пока в результатах за неделю поправить ошибку с асинхронностью" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -369,46 +387,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1598386383244">
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1598455029444">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598386383244" />
+    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598455029444" />
     <state width="863" height="227" key="GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1598386383244">
+    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1598455029436">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1598386383244" />
+    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1598455029436" />
     <state width="863" height="227" key="GridCell.Tab.0.center/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1598386383243">
+    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1598455029436">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1598386383243" />
+    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1598455029436" />
     <state width="863" height="227" key="GridCell.Tab.0.left/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1598386383244">
+    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1598455029440">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1598386383244" />
+    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1598455029440" />
     <state width="863" height="227" key="GridCell.Tab.0.right/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
-    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598189148354">
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598454667221">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
-    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598189148353">
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598454667221" />
+    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598454667221">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
-    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598189148353">
+    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598454667221" />
+    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598454667221">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
-    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598189148354">
+    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598454667221" />
+    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598454667221">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
+    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598454667221" />
     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -422,11 +440,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598386519865">
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598386578160">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1598386519865" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1598386578160" />
     <state x="602" y="114" width="778" height="780" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598371282032">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
