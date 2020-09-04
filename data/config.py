@@ -1,5 +1,7 @@
 import os
 
+import asyncio
+
 from dotenv import load_dotenv
 from work_with_gsheet import get_list_id_and_name_of_users
 
@@ -13,8 +15,10 @@ admins = [
 # for working notifications
 api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
 
-users_id = get_list_id_and_name_of_users()
-
+async def id_and_name_of_users():
+    await asyncio.sleep(1)
+    users_id = await get_list_id_and_name_of_users()
+    return users_id
 
 
 

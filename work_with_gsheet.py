@@ -112,7 +112,8 @@ async def get_achievements_group_by_user_for_period(amount_of_days=7):
     for date in range(0, amount_of_days):
         try:
             number_of_day = (datetime.today() - timedelta(days=date)).strftime("%d.%m.%Y")
-            achievements_by_date = await get_achievements_group_by_date()[number_of_day]
+            achievements_by_date1 = await get_achievements_group_by_date()
+            achievements_by_date = achievements_by_date1[number_of_day]
             for key in achievements_by_date:
                 if key not in achievements_group_by_user_for_period:
                     achievements_group_by_user_for_period[key] = achievements_by_date[key]
