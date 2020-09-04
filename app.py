@@ -1,5 +1,5 @@
 from utils.set_bot_commands import set_default_commands
-
+from result_for_week import send_achievements_of_users
 
 async def on_startup(dp):
     import filters
@@ -9,8 +9,11 @@ async def on_startup(dp):
     middlewares.setup(dp)
 
     from utils.notify_admins import on_startup_notify
+    #from result_for_week import test123
     await on_startup_notify(dp)
     await set_default_commands(dp)
+    #await test123(dp)
+
 
 
 if __name__ == '__main__':

@@ -1,11 +1,14 @@
 import asyncio
 from typing import Optional
 
+from result_for_week import send_achievements_of_users
+
 import aioredis
 
 from data import config
 
 data_pool: Optional[aioredis.Redis] = None
+
 
 
 async def create_pools():
