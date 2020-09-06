@@ -20,13 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="push">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/every_day_notyfying.py" beforeDir="false" afterPath="$PROJECT_DIR$/every_day_notyfying.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_for_week.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_for_week.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/redis/consts.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/redis/consts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/work_with_gsheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_with_gsheet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +76,7 @@
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.result_for_week">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,9 +184,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.every_day_notyfying" />
+        <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.config" />
         <item itemvalue="Python.test_bot_notify" />
       </list>
