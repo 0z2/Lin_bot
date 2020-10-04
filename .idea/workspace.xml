@@ -19,11 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="push">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="now with achievments started to add id of user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/every_day_notyfying.py" beforeDir="false" afterPath="$PROJECT_DIR$/every_day_notyfying.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result_for_week.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_for_week.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +37,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="refactoring1" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,12 +58,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/handlers/users/achievments" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/utils/misc" />
       <recent name="$PROJECT_DIR$/handlers/users" />
       <recent name="$PROJECT_DIR$/handlers/users/achievments" />
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
@@ -101,27 +96,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Lin_bot" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/config.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="every_day_notyfying" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -135,6 +109,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/every_day_notyfying.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="example_google_table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Lin_bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example_google_table.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -164,7 +159,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test_bot_notify" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="work_with_gsheet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -176,7 +171,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_bot_notify.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/work_with_gsheet.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,8 +185,8 @@
         <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.every_day_notyfying" />
-        <item itemvalue="Python.config" />
-        <item itemvalue="Python.test_bot_notify" />
+        <item itemvalue="Python.work_with_gsheet" />
+        <item itemvalue="Python.example_google_table" />
       </list>
     </recent_temporary>
   </component>
@@ -291,14 +286,7 @@
       <option name="project" value="LOCAL" />
       <updated>1598005053477</updated>
     </task>
-    <task id="LOCAL-00013" summary="push">
-      <created>1599395487806</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1599395487806</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -329,8 +317,7 @@
     <MESSAGE value="sending notification all users from GSheet" />
     <MESSAGE value="trying to merge )" />
     <MESSAGE value="now with achievments started to add id of user" />
-    <MESSAGE value="push" />
-    <option name="LAST_COMMIT_MESSAGE" value="push" />
+    <option name="LAST_COMMIT_MESSAGE" value="now with achievments started to add id of user" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -363,46 +350,46 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1600362703919">
+    <state width="1542" height="227" key="GridCell.Tab.0.bottom" timestamp="1601819432940">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
+    <state width="1542" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1601819432940" />
     <state width="863" height="227" key="GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1600362703919">
+    <state width="1542" height="227" key="GridCell.Tab.0.center" timestamp="1601819432940">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
+    <state width="1542" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1601819432940" />
     <state width="863" height="227" key="GridCell.Tab.0.center/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1600362703919">
+    <state width="1542" height="227" key="GridCell.Tab.0.left" timestamp="1601819432934">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
+    <state width="1542" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1601819432934" />
     <state width="863" height="227" key="GridCell.Tab.0.left/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1600362703919">
+    <state width="1542" height="227" key="GridCell.Tab.0.right" timestamp="1601819432940">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
+    <state width="1542" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1601819432940" />
     <state width="863" height="227" key="GridCell.Tab.0.right/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
-    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598521623077">
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598189148354">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598521623077" />
-    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598521623076">
+    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
+    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598189148353">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
-    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598521623076">
+    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
+    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598189148353">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
-    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598521623076">
+    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
+    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598189148354">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
-    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
+    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -411,26 +398,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="221" key="RollbackChangesDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594521399809" />
-    <state x="516" y="236" width="1022" height="737" key="SettingsEditor" timestamp="1600361784050">
+    <state x="516" y="236" width="1022" height="737" key="SettingsEditor" timestamp="1596303583851">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
-    <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1600361784050" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1599395492091">
+    <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1601819458833">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1599395492091" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1601819458833" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594235347514" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.948@72.27.1848.948" timestamp="1596300693511" />
-    <state x="713" y="135" width="588" height="731" key="find.popup" timestamp="1598601746830">
+    <state x="713" y="135" width="588" height="731" key="find.popup" timestamp="1596813216602">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="666" y="119" width="587" height="801" key="find.popup/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594523909328" />
-    <state x="713" y="135" width="588" height="731" key="find.popup/72.27.1848.948@72.27.1848.948" timestamp="1598601746830" />
+    <state x="713" y="135" width="588" height="731" key="find.popup/72.27.1848.948@72.27.1848.948" timestamp="1596813216602" />
     <state x="784" y="238" width="539" height="619" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597594628150">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
@@ -456,15 +443,5 @@
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="721" y="393" width="540" height="223" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1848.948@72.27.1848.948" timestamp="1596302663363" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/every_day_notyfying.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
