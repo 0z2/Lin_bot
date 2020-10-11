@@ -1,0 +1,427 @@
+Index: result_for_week.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import requests\nfrom data.config import api_link\nfrom typing import Optional, Union\nfrom aiogram import Bot, types\nimport logging\n\nimport schedule\nimport time\n\n\nimport asyncio\n\nfrom collections import Counter\nfrom work_with_gsheet import get_achievements_group_by_user_for_period, get_list_id_and_name_of_users\n\ndef run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):\n    return loop.run_until_complete(coro)\n\nlist_of_achievements = {'delicious_house': '\uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1 За вкусный дом',\n                        'health': '\uD83D\uDC8A За занятие здоровьем',\n                        'language': '\uD83C\uDDFA\uD83C\uDDF8 За изучение языков',\n                        'music': '\uD83C\uDFB8 За занятие музыкой',\n                        'personal_care': '\uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂ За уход за собой',\n                        'proper_nutrition': '\uD83E\uDD59 За правильное питание',\n                        'sport': '\uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB За занятия спортом',\n                        'studying': '\uD83C\uDF93 За учёбу',\n                        'work': '\uD83D\uDEE0 За хорошую работу',\n                        'yoga': '\uD83E\uDDD8\u200D♂️За занятия йогой',\n                        'voice': '\uD83D\uDDE3️ за работу над голосом'\n                        }\n\n# тут нужно добавить возможность перидать либо за неделю, либо за месяц и добавить два вызова, что бы одном случае\n# писалось за неделю, а во втором за месяц\n# либо просто передачу кол-ва дней, чтобы далее пользователь сам мог запрашивать. Хотя для пользователя лучше сделать\n# возможность просмотра за этот месяц и предыдущий\ndef job(bot: Bot):\n    try:\n        list_of_users = run_async(bot.loop, get_list_id_and_name_of_users())\n        for user in list_of_users:\n            amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())\n            amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user[1]]\n            amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)\n            # print('Пользователь', user[1])\n            message = 'Привет, вот твои результаты за неделю!\\n\\n'\n            for name_of_achievement, amount_of_achievement in amount_of_achievements_of_user_for_the_week_count.items():\n                message += (list_of_achievements[name_of_achievement] + ' - ' + str(amount_of_achievement) + '\\n')\n            # print(message)\n            notifying = requests.get(api_link + f'/sendMessage?chat_id={user[0]}&text={message}')\n            break  # для теста, чтобы отправилось только мне\n    except Exception as err:\n        logging.exception(err)\n\nbot = Bot(token=\"1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y\", parse_mode=types.ParseMode.HTML)\n\n#schedule.every(0.1).minutes.do(job, bot=bot)\n# schedule.every().hour.do(job)\nschedule.every().day.at(\"22:30\").do(job, bot=bot)\n# schedule.every().monday.do(job)\n#schedule.every().sunday.at(\"20:00\").do(job)\n# schedule.every().minute.at(\":17\").do(job)\n\nwhile True:\n    schedule.run_pending()\n    time.sleep(1)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- result_for_week.py	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ result_for_week.py	(date 1601818720923)
+@@ -7,15 +7,16 @@
+ import schedule
+ import time
+ 
+-
+ import asyncio
+ 
+ from collections import Counter
+ from work_with_gsheet import get_achievements_group_by_user_for_period, get_list_id_and_name_of_users
+ 
++
+ def run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):
+     return loop.run_until_complete(coro)
+ 
++
+ list_of_achievements = {'delicious_house': '👩‍❤️‍👨🏡 За вкусный дом',
+                         'health': '💊 За занятие здоровьем',
+                         'language': '🇺🇸 За изучение языков',
+@@ -29,6 +30,7 @@
+                         'voice': '🗣️ за работу над голосом'
+                         }
+ 
++
+ # тут нужно добавить возможность перидать либо за неделю, либо за месяц и добавить два вызова, что бы одном случае
+ # писалось за неделю, а во втором за месяц
+ # либо просто передачу кол-ва дней, чтобы далее пользователь сам мог запрашивать. Хотя для пользователя лучше сделать
+@@ -37,7 +39,8 @@
+     try:
+         list_of_users = run_async(bot.loop, get_list_id_and_name_of_users())
+         for user in list_of_users:
+-            amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())
++            amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop,
++                                                                          get_achievements_group_by_user_for_period())
+             amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user[1]]
+             amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)
+             # print('Пользователь', user[1])
+@@ -50,13 +53,14 @@
+     except Exception as err:
+         logging.exception(err)
+ 
++
+ bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
+ 
+-#schedule.every(0.1).minutes.do(job, bot=bot)
++# schedule.every(0.1).minutes.do(job, bot=bot)
+ # schedule.every().hour.do(job)
+ schedule.every().day.at("22:30").do(job, bot=bot)
+ # schedule.every().monday.do(job)
+-#schedule.every().sunday.at("20:00").do(job)
++# schedule.every().sunday.at("20:00").do(job)
+ # schedule.every().minute.at(":17").do(job)
+ 
+ while True:
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>aiogram==2.7\naiohttp==3.6.2\naioredis==1.3.1\npython-dotenv
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- requirements.txt	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ requirements.txt	(date 1601741592271)
+@@ -1,4 +1,7 @@
+-aiogram==2.7
++aiogram==2.10.1
+ aiohttp==3.6.2
+ aioredis==1.3.1
+-python-dotenv
+\ No newline at end of file
++python-dotenv~=0.14.0
++requests~=2.24.0
++httplib2~=0.18.1
++schedule~=0.6.0
+\ No newline at end of file
+Index: every_day_notyfying.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import logging\nfrom typing import Optional, Union\n\nfrom aiogram import Bot, types\n\nimport schedule\nimport time\nfrom datetime import datetime, date, timedelta\n\nfrom work_with_gsheet import get_list_id_and_name_of_users\n\nimport asyncio\n\n\ndef run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):\n    return loop.run_until_complete(coro)\n\nlist_of_achievements = {'delicious_house': '/delicious_house{yesterday_with_slash} - за вкусный дом \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n',\n                        'health': '/health{yesterday_with_slash} - за занятие здоровьем \uD83D\uDC8A\\n',\n                        'language': '/language{yesterday_with_slash} - за изучение языков \uD83C\uDDFA\uD83C\uDDF8\\n',\n                        'music': '/music{yesterday_with_slash} - за занятие музыкой \uD83C\uDFB8\\n',\n                        'personal_care': '/personal_care{yesterday_with_slash} - уход за собой \uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂\\n',\n                        'proper_nutrition': '/proper_nutrition{yesterday_with_slash} - полезная еда \uD83E\uDD59\\n',\n                        'sport': '/sport{yesterday_with_slash} - за занятия спортом \uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB\\n',\n                        'studying': '/studying{yesterday_with_slash} - за учёбу \uD83C\uDF93\\n',\n                        'work': '/work{yesterday_with_slash} - за хорошую работу \uD83D\uDEE0\\n',\n                        'yoga': '/yoga{yesterday_with_slash} - за занятия йогой \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n',\n                        'voice': '/voice{yesterday_with_slash} - за работу над голосом \uD83D\uDDE3️\\n',\n                        }\n\ndef job(bot: Bot):\n    print(\"I'm working...\")\n    yesterday = date.today() - timedelta(days=1)\n    yesterday_with_slash = yesterday.strftime(\"_%d_%m_%Y\")\n    yesterday_with_dots = yesterday.strftime(\"%d.%m.%Y\")\n    users_id = run_async(bot.loop, get_list_id_and_name_of_users())\n    for (user, *_) in users_id:\n        try:\n            run_async(bot.loop, bot.send_message(chat_id=user,\n                                                 text=f'Привет, заполним ачивки за {yesterday_with_dots}?\\n'\n                                                      f'/work{yesterday_with_slash} - за хорошую работу \uD83D\uDEE0\\n'\n                                                      f'/sport{yesterday_with_slash} - за занятия спортом \uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB\\n'\n                                                      f'/language{yesterday_with_slash} - за изучение языков \uD83C\uDDFA\uD83C\uDDF8\\n'\n                                                      f'/studying{yesterday_with_slash} - за учёбу \uD83C\uDF93\\n'\n                                                      f'/health{yesterday_with_slash} - за занятие здоровьем \uD83D\uDC8A\\n'\n                                                      f'/proper_nutrition{yesterday_with_slash} - полезная еда \uD83E\uDD59\\n'\n                                                      f'/personal_care{yesterday_with_slash} - уход за собой \uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂\\n'\n                                                      f'/music{yesterday_with_slash} - за занятие музыкой \uD83C\uDFB8\\n'\n                                                      f'/delicious_house{yesterday_with_slash} - за вкусный дом \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n'\n                                                      f'/yoga{yesterday_with_slash} - за занятия йогой \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n'\n                                                      f'/voice{yesterday_with_slash} - за работу над голосом \uD83D\uDDE3️\\n'))\n            # notifying = requests.get(\n            #     api_link + f'/sendMessage?chat_id={user}&text=\n            # )\n        except Exception as err:\n            logging.exception(err)\n\n\nbot = Bot(token=\"1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y\", parse_mode=types.ParseMode.HTML)\n\n#schedule.every(0.1).minutes.do(job, bot=bot)\n# schedule.every().hour.do(job)\nschedule.every().day.at(\"10:00\").do(job, bot=bot)\n# schedule.every().monday.do(job)\n# schedule.every().wednesday.at(\"13:15\").do(job)\n# schedule.every().minute.at(\":17\").do(job)\n\nwhile True:\n    schedule.run_pending()\n    time.sleep(1)\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- every_day_notyfying.py	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ every_day_notyfying.py	(date 1601795616808)
+@@ -58,9 +58,9 @@
+ 
+ bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
+ 
+-#schedule.every(0.1).minutes.do(job, bot=bot)
++schedule.every(0.1).minutes.do(job, bot=bot)
+ # schedule.every().hour.do(job)
+-schedule.every().day.at("10:00").do(job, bot=bot)
++#schedule.every().day.at("10:00").do(job, bot=bot)
+ # schedule.every().monday.do(job)
+ # schedule.every().wednesday.at("13:15").do(job)
+ # schedule.every().minute.at(":17").do(job)
+Index: work_with_gsheet.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># статья с описанием работы - https://habr.com/ru/post/483302/\n# Подключаем библиотеки\nimport asyncio\n\n# для работы с гугл таблицами\nimport httplib2\nimport apiclient.discovery\nfrom oauth2client.service_account import ServiceAccountCredentials\n\nfrom datetime import datetime, timedelta\n\nCREDENTIALS_FILE = 'data/google_sheet_auth.json'  # Имя файла с закрытым ключом\n# Читаем ключи из файла\ncredentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE,\n                                                               ['https://www.googleapis.com/auth/spreadsheets',\n                                                                'https://www.googleapis.com/auth/drive'])\nhttpAuth = credentials.authorize(httplib2.Http())  # Авторизуемся в системе\nservice = apiclient.discovery.build('sheets', 'v4', http=httpAuth)  # Выбираем работу с таблицами и 4 версию API\nspreadsheetId = '1pxrkIrlNgUnhTK1jj00iYxu5jlpl79nEy77yvntckvo'  # spreadsheet['spreadsheetId'] # сохраняем идентификатор файла\nprint('https://docs.google.com/spreadsheets/d/' + spreadsheetId)\ndriveService = apiclient.discovery.build('drive', 'v3', http=httpAuth)  # Выбираем работу с Google Drive и 3 версию API\n\n\nasync def get_results_from_gsheet(ranges):\n    await asyncio.sleep(1)\n    # возвращает значения из переданного диапазона\n    result = service.spreadsheets().values().batchGet(spreadsheetId=spreadsheetId,\n                                                      ranges=ranges,\n                                                      valueRenderOption='FORMATTED_VALUE',\n                                                      dateTimeRenderOption='FORMATTED_STRING').execute()\n    return result\n\n\nasync def get_amount_of_users():\n    await asyncio.sleep(1)\n    ranges = [\"Пользователи!I1:I1\"]\n    results = await get_results_from_gsheet(ranges)\n    sheet_values = results['valueRanges'][0]['values']\n    return sheet_values[0][0]\n\n\nasync def get_list_id_and_name_of_users():\n    await asyncio.sleep(1)\n    ranges = [\"Пользователи!B2:C100\"]  # тут нужно увеличить кол-во получаемых id\n    results = await get_results_from_gsheet(ranges)\n    sheet_values = results['valueRanges'][0]['values']\n    return sheet_values\n\n\nasync def get_amount_of_achievements():\n    await asyncio.sleep(1)\n    # эту функция нужная для того чтобы узнать в какую строку записывать следующую ачивку\n    # возвращает номер последней строки с записью\n    ranges = [\"Ачивки!I1:I1\"]\n    results = await get_results_from_gsheet(ranges)\n    sheet_values = results['valueRanges'][0]['values']\n    return sheet_values[0][0]\n\n\nasync def get_list_of_achievements():\n    await asyncio.sleep(1)\n    # Получение списка ачивок, даты и пользователя\n    last_line_with_achievement = await get_amount_of_achievements()\n    ranges = [f\"Ачивки!B2:D{last_line_with_achievement}\"]  # тут нужно увеличить кол-во получаемых id\n    results = await get_results_from_gsheet(ranges)\n    sheet_values = results['valueRanges'][0]['values']\n    return sheet_values\n\n\nasync def add_new_achievement(date_of_achievement, name_of_achievement, name_of_user, id_in_tg):\n    # сверху добавил async и ниже await с слипом и пропала ошибка \"object NoneType can't be used in 'await' expression\"\n    await asyncio.sleep(1)\n    last_line = await get_amount_of_achievements()\n    results = service.spreadsheets().values().batchUpdate(spreadsheetId=spreadsheetId, body={\n        \"valueInputOption\": \"USER_ENTERED\",\n        # Данные воспринимаются, как вводимые пользователем (считается значение формул)\n        \"data\": [\n            {\"range\": f\"Ачивки!B{int(last_line) + 1}:E{int(last_line) + 1}\",\n             \"majorDimension\": \"ROWS\",  # Сначала заполнять строки, затем столбцы\n             \"values\": [\n                 [f\"{date_of_achievement}\", f\"{name_of_achievement}\", f\"{name_of_user}\", f\"{id_in_tg}\"]\n             ]}\n        ]\n    }).execute()\n\n\nasync def get_achievements_group_by_date():\n    await asyncio.sleep(1)\n    achievements_group_by_date = dict() # ключ - дата, значения - список из ачивки, имени пользователя, и даты\n    list_of_achievements = await get_list_of_achievements()\n    # print(list_of_achievements)\n    for list in list_of_achievements:\n        date_of_achievement = list[0]\n        name_of_user = list[2]\n        name_of_achievement = list[1]\n        # группируем по дате, внутри создаем словари с пользователями и списком их ачивок за день\n        # имя пользователя ключ, список ачивок значение\n        if date_of_achievement not in achievements_group_by_date:\n            achievements_group_by_date[date_of_achievement] = {name_of_user: [name_of_achievement]}\n        else:\n            if name_of_user not in achievements_group_by_date[date_of_achievement]:\n                achievements_group_by_date[date_of_achievement][name_of_user] = [name_of_achievement]\n            else:\n                achievements_group_by_date[date_of_achievement][name_of_user].append(name_of_achievement)\n    return achievements_group_by_date\n    # print(achievements_group_by_date)\n\n\nasync def get_achievements_group_by_user_for_period(amount_of_days=7):\n    await asyncio.sleep(1)\n    achievements_group_by_user_for_period = dict() # ключ - имя пользователя, значения - список всех ачивок за период\n    for date in range(0, amount_of_days):\n        try:\n            number_of_day = (datetime.today() - timedelta(days=date)).strftime(\"%d.%m.%Y\")\n            achievements_by_date1 = await get_achievements_group_by_date()\n            achievements_by_date = achievements_by_date1[number_of_day]\n            for key in achievements_by_date:\n                if key not in achievements_group_by_user_for_period:\n                    achievements_group_by_user_for_period[key] = achievements_by_date[key]\n                else:\n                    achievements_group_by_user_for_period[key] += achievements_by_date[key]\n        except KeyError:\n            pass\n    return achievements_group_by_user_for_period\n\n\n# print(group_achievements_by_user_for_period())
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- work_with_gsheet.py	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ work_with_gsheet.py	(date 1601795760732)
+@@ -1,4 +1,4 @@
+-# статья с описанием работы - https://habr.com/ru/post/483302/
++# статья с описанием работы - https://habr.cpip3 install --upgrade google-api-python-clientom/ru/post/483302/
+ # Подключаем библиотеки
+ import asyncio
+ 
+@@ -46,7 +46,6 @@
+     sheet_values = results['valueRanges'][0]['values']
+     return sheet_values
+ 
+-
+ async def get_amount_of_achievements():
+     await asyncio.sleep(1)
+     # эту функция нужная для того чтобы узнать в какую строку записывать следующую ачивку
+Index: .idea/Lin_bot.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<module type=\"PYTHON_MODULE\" version=\"4\">\n  <component name=\"NewModuleRootManager\">\n    <content url=\"file://$MODULE_DIR$\">\n      <excludeFolder url=\"file://$MODULE_DIR$/venv\" />\n    </content>\n    <orderEntry type=\"inheritedJdk\" />\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\n  </component>\n  <component name=\"PyDocumentationSettings\">\n    <option name=\"format\" value=\"PLAIN\" />\n    <option name=\"myDocStringFormat\" value=\"Plain\" />\n  </component>\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/Lin_bot.iml	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ .idea/Lin_bot.iml	(date 1601741592287)
+@@ -1,9 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
+-    <content url="file://$MODULE_DIR$">
+-      <excludeFolder url="file://$MODULE_DIR$/venv" />
+-    </content>
++    <content url="file://$MODULE_DIR$" />
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"4e7dde31-ebc3-4552-bd9c-9bd05e678a1f\" name=\"Default Changelist\" comment=\"push\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/every_day_notyfying.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/every_day_notyfying.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/handlers/users/__init__.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/handlers/users/__init__.py\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/result_for_week.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/result_for_week.py\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"refactoring1\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n    <option name=\"ROOT_SYNC\" value=\"SYNC\" />\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1eKEbeHvPI5Fu6Y6Ugqj0usPCtq\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"Git.Branch.Popup.ShowAllRemotes\" value=\"true\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"TERMINAL_CUSTOM_COMMANDS_GOT_IT\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/handlers/users/achievments\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"editor.preferences.appearance\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/utils/misc\" />\n      <recent name=\"$PROJECT_DIR$/handlers/users\" />\n      <recent name=\"$PROJECT_DIR$/handlers/users/achievments\" />\n      <recent name=\"C:\\Users\\Ozz\\PycharmProjects\\udemy_course\\handlers\\users\" />\n    </key>\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/handlers/users/achievments\" />\n      <recent name=\"$PROJECT_DIR$\" />\n      <recent name=\"$PROJECT_DIR$/venv\" />\n      <recent name=\"$PROJECT_DIR$/handlers/users\" />\n      <recent name=\"C:\\Users\\Ozz\\PycharmProjects\\udemy_course\\handlers\\users\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Python.result_for_week\">\n    <configuration name=\"app\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Lin_bot\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/app.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"config\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Lin_bot\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/data\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/data/config.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"every_day_notyfying\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Lin_bot\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/every_day_notyfying.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"result_for_week\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Lin_bot\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/result_for_week.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"test_bot_notify\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Lin_bot\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/test_bot_notify.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Python.result_for_week\" />\n        <item itemvalue=\"Python.app\" />\n        <item itemvalue=\"Python.every_day_notyfying\" />\n        <item itemvalue=\"Python.config\" />\n        <item itemvalue=\"Python.test_bot_notify\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"SvnConfiguration\">\n    <configuration>C:\\Users\\Ozz\\AppData\\Roaming\\Subversion</configuration>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"4e7dde31-ebc3-4552-bd9c-9bd05e678a1f\" name=\"Default Changelist\" comment=\"\" />\n      <created>1594061957831</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1594061957831</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"updates\">\n      <created>1594525851616</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1594525851616</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"updates\">\n      <created>1596289220640</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596289220640</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"add Tanya and make notifying and answering in one project, but like two different scripts\">\n      <created>1596306065108</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596306065108</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"added four new achievments\">\n      <created>1596564813913</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596564813913</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"added four new achievments\">\n      <created>1596733338486</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596733338486</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"changed some styles in achievments and view of dates\">\n      <created>1596734545489</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596734545489</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"changed some styles in achievments and view of dates\">\n      <created>1596734689987</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1596734689987</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"changed some styles in achievments and view of dates\">\n      <created>1597598444734</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1597598444734</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"added writing in google sheets\">\n      <created>1597598513604</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1597598513604</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"sending notification all users from GSheet\">\n      <created>1597780708689</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1597780708689</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"trying to merge )\">\n      <created>1597999619883</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1597999619883</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"now with achievments started to add id of user\">\n      <created>1598005053477</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1598005053477</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"push\">\n      <created>1599395487806</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1599395487806</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"14\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"COLUMN_WIDTH\">\n                <map>\n                  <entry key=\"2\" value=\"82\" />\n                  <entry key=\"3\" value=\"82\" />\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"updates\" />\n    <MESSAGE value=\"add Tanya and make notifying and answering in one project, but like two different scripts\" />\n    <MESSAGE value=\"added four new achievments\" />\n    <MESSAGE value=\"changed some styles in achievments and view of dates\" />\n    <MESSAGE value=\"added writing in google sheets\" />\n    <MESSAGE value=\"sending notification all users from GSheet\" />\n    <MESSAGE value=\"trying to merge )\" />\n    <MESSAGE value=\"now with achievments started to add id of user\" />\n    <MESSAGE value=\"push\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"push\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"625\" y=\"182\" width=\"732\" height=\"644\" key=\"#Inspections\" timestamp=\"1596302104442\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"625\" y=\"182\" width=\"732\" height=\"644\" key=\"#Inspections/72.27.1848.948@72.27.1848.948\" timestamp=\"1596302104442\" />\n    <state x=\"683\" y=\"326\" width=\"615\" height=\"357\" key=\"#Notifications\" timestamp=\"1596303139208\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"683\" y=\"326\" width=\"615\" height=\"357\" key=\"#Notifications/72.27.1848.948@72.27.1848.948\" timestamp=\"1596303139208\" />\n    <state x=\"669\" y=\"114\" key=\"#app\" timestamp=\"1594226222503\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"669\" y=\"114\" key=\"#app/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594226222503\" />\n    <state x=\"454\" y=\"159\" width=\"1084\" height=\"710\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1596302378921\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"454\" y=\"159\" width=\"1084\" height=\"710\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.948@72.27.1848.948\" timestamp=\"1596302378921\" />\n    <state x=\"711\" y=\"303\" width=\"559\" height=\"403\" key=\"#com.intellij.fileTypes.FileTypeChooser\" timestamp=\"1596304528388\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"711\" y=\"303\" width=\"559\" height=\"403\" key=\"#com.intellij.fileTypes.FileTypeChooser/72.27.1848.948@72.27.1848.948\" timestamp=\"1596304528388\" />\n    <state x=\"460\" y=\"292\" width=\"424\" height=\"491\" key=\"FileChooserDialogImpl\" timestamp=\"1596304170417\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"648\" y=\"266\" key=\"FileChooserDialogImpl/0.0.1680.1010@0.0.1680.1010\" timestamp=\"1595768372643\" />\n    <state x=\"740\" y=\"274\" key=\"FileChooserDialogImpl/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594544511455\" />\n    <state x=\"460\" y=\"292\" width=\"424\" height=\"491\" key=\"FileChooserDialogImpl/72.27.1848.948@72.27.1848.948\" timestamp=\"1596304170417\" />\n    <state x=\"784\" y=\"438\" key=\"Github.CreateGistDialog\" timestamp=\"1594543295593\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"784\" y=\"438\" key=\"Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594543295593\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1600362703919\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1898\" height=\"277\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594522503000\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948\" timestamp=\"1600362703919\" />\n    <state width=\"863\" height=\"227\" key=\"GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939\" timestamp=\"1597564284308\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.center\" timestamp=\"1600362703919\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1898\" height=\"277\" key=\"GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594522503000\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948\" timestamp=\"1600362703919\" />\n    <state width=\"863\" height=\"227\" key=\"GridCell.Tab.0.center/72.27.886.939@72.27.886.939\" timestamp=\"1597564284307\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.left\" timestamp=\"1600362703919\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1898\" height=\"277\" key=\"GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594522503000\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948\" timestamp=\"1600362703919\" />\n    <state width=\"863\" height=\"227\" key=\"GridCell.Tab.0.left/72.27.886.939@72.27.886.939\" timestamp=\"1597564284307\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.right\" timestamp=\"1600362703919\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1898\" height=\"277\" key=\"GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594522503000\" />\n    <state width=\"1825\" height=\"227\" key=\"GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948\" timestamp=\"1600362703919\" />\n    <state width=\"863\" height=\"227\" key=\"GridCell.Tab.0.right/72.27.886.939@72.27.886.939\" timestamp=\"1597564284308\" />\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1598521623077\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948\" timestamp=\"1598521623077\" />\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.center\" timestamp=\"1598521623076\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948\" timestamp=\"1598521623076\" />\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.left\" timestamp=\"1598521623076\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948\" timestamp=\"1598521623076\" />\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.right\" timestamp=\"1598521623076\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state width=\"1825\" height=\"298\" key=\"GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948\" timestamp=\"1598521623076\" />\n    <state x=\"184\" y=\"85\" key=\"MergeDialog\" timestamp=\"1594230236247\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"184\" y=\"85\" key=\"MergeDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594230236247\" />\n    <state x=\"752\" y=\"221\" key=\"RollbackChangesDialog\" timestamp=\"1594521399809\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"752\" y=\"221\" key=\"RollbackChangesDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594521399809\" />\n    <state x=\"516\" y=\"236\" width=\"1022\" height=\"737\" key=\"SettingsEditor\" timestamp=\"1600361784050\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"461\" y=\"229\" key=\"SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594544498681\" />\n    <state x=\"516\" y=\"236\" width=\"1022\" height=\"737\" key=\"SettingsEditor/72.27.1848.948@72.27.1848.948\" timestamp=\"1600361784050\" />\n    <state x=\"547\" y=\"249\" width=\"800\" height=\"535\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1599395492091\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"432\" y=\"237\" key=\"Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010\" timestamp=\"1595782157137\" />\n    <state x=\"547\" y=\"249\" width=\"800\" height=\"535\" key=\"Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948\" timestamp=\"1599395492091\" />\n    <state x=\"812\" y=\"422\" width=\"428\" height=\"177\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1596300693511\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"769\" y=\"433\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594235347514\" />\n    <state x=\"812\" y=\"422\" width=\"428\" height=\"177\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.948@72.27.1848.948\" timestamp=\"1596300693511\" />\n    <state x=\"713\" y=\"135\" width=\"588\" height=\"731\" key=\"find.popup\" timestamp=\"1598601746830\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"666\" y=\"119\" width=\"587\" height=\"801\" key=\"find.popup/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594523909328\" />\n    <state x=\"713\" y=\"135\" width=\"588\" height=\"731\" key=\"find.popup/72.27.1848.948@72.27.1848.948\" timestamp=\"1598601746830\" />\n    <state x=\"784\" y=\"238\" width=\"539\" height=\"619\" key=\"git4idea.branch.GitSmartOperationDialog\" timestamp=\"1597594628150\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"740\" y=\"232\" key=\"git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594230187559\" />\n    <state x=\"784\" y=\"238\" width=\"539\" height=\"619\" key=\"git4idea.branch.GitSmartOperationDialog/72.27.1848.948@72.27.1848.948\" timestamp=\"1597594628150\" />\n    <state x=\"790\" y=\"310\" key=\"svn.repositoryBrowser\" timestamp=\"1594544194624\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"790\" y=\"310\" key=\"svn.repositoryBrowser/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594544194624\" />\n    <state x=\"736\" y=\"383\" key=\"svn4idea.checkout.options\" timestamp=\"1594543246360\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"736\" y=\"383\" key=\"svn4idea.checkout.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594543246360\" />\n    <state x=\"782\" y=\"384\" key=\"svn4idea.export.options\" timestamp=\"1594543221692\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"782\" y=\"384\" key=\"svn4idea.export.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594543221692\" />\n    <state x=\"820\" y=\"293\" key=\"svn4idea.import.options\" timestamp=\"1594544181271\">\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\n    </state>\n    <state x=\"820\" y=\"293\" key=\"svn4idea.import.options/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040\" timestamp=\"1594544181271\" />\n    <state x=\"721\" y=\"393\" width=\"540\" height=\"223\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog\" timestamp=\"1596302663363\">\n      <screen x=\"72\" y=\"27\" width=\"1848\" height=\"948\" />\n    </state>\n    <state x=\"721\" y=\"393\" width=\"540\" height=\"223\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1848.948@72.27.1848.948\" timestamp=\"1596302663363\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\n          <url>file://$PROJECT_DIR$/every_day_notyfying.py</url>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 737cffea144a0b4e85db4dd05fd670ee1fe4bdf6)
++++ .idea/workspace.xml	(date 1601818726999)
+@@ -19,11 +19,13 @@
+     <select />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="push">
++    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="now with achievments started to add id of user">
++      <change beforePath="$PROJECT_DIR$/.idea/Lin_bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lin_bot.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/every_day_notyfying.py" beforeDir="false" afterPath="$PROJECT_DIR$/every_day_notyfying.py" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/result_for_week.py" beforeDir="false" afterPath="$PROJECT_DIR$/result_for_week.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/work_with_gsheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_with_gsheet.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -40,7 +42,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="refactoring1" />
++        <entry key="$PROJECT_DIR$" value="master" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -61,12 +63,10 @@
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$/handlers/users/achievments" />
+-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
++    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+-      <recent name="$PROJECT_DIR$" />
+-      <recent name="$PROJECT_DIR$/utils/misc" />
+       <recent name="$PROJECT_DIR$/handlers/users" />
+       <recent name="$PROJECT_DIR$/handlers/users/achievments" />
+       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
+@@ -101,7 +101,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="config" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="every_day_notyfying" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Lin_bot" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -109,11 +109,11 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/config.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/every_day_notyfying.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -122,7 +122,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="every_day_notyfying" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="example_google_table" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Lin_bot" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -134,7 +134,7 @@
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/every_day_notyfying.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/example_google_table.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -164,7 +164,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="test_bot_notify" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="work_with_gsheet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Lin_bot" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -176,7 +176,7 @@
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_bot_notify.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/work_with_gsheet.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -187,11 +187,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Python.every_day_notyfying" />
+         <item itemvalue="Python.result_for_week" />
++        <item itemvalue="Python.work_with_gsheet" />
+         <item itemvalue="Python.app" />
+-        <item itemvalue="Python.every_day_notyfying" />
+-        <item itemvalue="Python.config" />
+-        <item itemvalue="Python.test_bot_notify" />
++        <item itemvalue="Python.example_google_table" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -291,14 +291,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1598005053477</updated>
+     </task>
+-    <task id="LOCAL-00013" summary="push">
+-      <created>1599395487806</created>
+-      <option name="number" value="00013" />
+-      <option name="presentableId" value="LOCAL-00013" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1599395487806</updated>
+-    </task>
+-    <option name="localTasksCounter" value="14" />
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -329,8 +322,7 @@
+     <MESSAGE value="sending notification all users from GSheet" />
+     <MESSAGE value="trying to merge )" />
+     <MESSAGE value="now with achievments started to add id of user" />
+-    <MESSAGE value="push" />
+-    <option name="LAST_COMMIT_MESSAGE" value="push" />
++    <option name="LAST_COMMIT_MESSAGE" value="now with achievments started to add id of user" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
+@@ -349,10 +341,10 @@
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="454" y="159" width="1084" height="710" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1848.948@72.27.1848.948" timestamp="1596302378921" />
+-    <state x="711" y="303" width="559" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596304528388">
++    <state x="711" y="303" width="559" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601742074331">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+-    <state x="711" y="303" width="559" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.948@72.27.1848.948" timestamp="1596304528388" />
++    <state x="711" y="303" width="559" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.948@72.27.1848.948" timestamp="1601742074331" />
+     <state x="460" y="292" width="424" height="491" key="FileChooserDialogImpl" timestamp="1596304170417">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+@@ -363,46 +355,46 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.bottom" timestamp="1600362703919">
++    <state width="1163" height="227" key="GridCell.Tab.0.bottom" timestamp="1601795602317">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
++    <state width="1163" height="227" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1601795602317" />
+     <state width="863" height="227" key="GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.center" timestamp="1600362703919">
++    <state width="1163" height="227" key="GridCell.Tab.0.center" timestamp="1601795602317">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
++    <state width="1163" height="227" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1601795602317" />
+     <state width="863" height="227" key="GridCell.Tab.0.center/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.left" timestamp="1600362703919">
++    <state width="1163" height="227" key="GridCell.Tab.0.left" timestamp="1601795602317">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
++    <state width="1163" height="227" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1601795602317" />
+     <state width="863" height="227" key="GridCell.Tab.0.left/72.27.886.939@72.27.886.939" timestamp="1597564284307" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.right" timestamp="1600362703919">
++    <state width="1163" height="227" key="GridCell.Tab.0.right" timestamp="1601795602317">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
+-    <state width="1825" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1600362703919" />
++    <state width="1163" height="227" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1601795602317" />
+     <state width="863" height="227" key="GridCell.Tab.0.right/72.27.886.939@72.27.886.939" timestamp="1597564284308" />
+-    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598521623077">
++    <state width="1825" height="298" key="GridCell.Tab.1.bottom" timestamp="1598189148354">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+-    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598521623077" />
+-    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598521623076">
++    <state width="1825" height="298" key="GridCell.Tab.1.bottom/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
++    <state width="1825" height="298" key="GridCell.Tab.1.center" timestamp="1598189148353">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+-    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
+-    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598521623076">
++    <state width="1825" height="298" key="GridCell.Tab.1.center/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
++    <state width="1825" height="298" key="GridCell.Tab.1.left" timestamp="1598189148353">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+-    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
+-    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598521623076">
++    <state width="1825" height="298" key="GridCell.Tab.1.left/72.27.1848.948@72.27.1848.948" timestamp="1598189148353" />
++    <state width="1825" height="298" key="GridCell.Tab.1.right" timestamp="1598189148354">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+-    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598521623076" />
++    <state width="1825" height="298" key="GridCell.Tab.1.right/72.27.1848.948@72.27.1848.948" timestamp="1598189148354" />
+     <state x="184" y="85" key="MergeDialog" timestamp="1594230236247">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -411,31 +403,31 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="752" y="221" key="RollbackChangesDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594521399809" />
+-    <state x="516" y="236" width="1022" height="737" key="SettingsEditor" timestamp="1600361784050">
++    <state x="516" y="236" width="1022" height="737" key="SettingsEditor" timestamp="1596303583851">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
+-    <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1600361784050" />
+-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1599395492091">
++    <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
++    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1598005057587">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
+-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1599395492091" />
++    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1598005057587" />
+     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="769" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594235347514" />
+     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/72.27.1848.948@72.27.1848.948" timestamp="1596300693511" />
+-    <state x="713" y="135" width="588" height="731" key="find.popup" timestamp="1598601746830">
++    <state x="713" y="135" width="588" height="731" key="find.popup" timestamp="1596813216602">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="666" y="119" width="587" height="801" key="find.popup/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594523909328" />
+-    <state x="713" y="135" width="588" height="731" key="find.popup/72.27.1848.948@72.27.1848.948" timestamp="1598601746830" />
+-    <state x="784" y="238" width="539" height="619" key="git4idea.branch.GitSmartOperationDialog" timestamp="1597594628150">
++    <state x="713" y="135" width="588" height="731" key="find.popup/72.27.1848.948@72.27.1848.948" timestamp="1596813216602" />
++    <state x="784" y="238" width="539" height="619" key="git4idea.branch.GitSmartOperationDialog" timestamp="1601818726541">
+       <screen x="72" y="27" width="1848" height="948" />
+     </state>
+     <state x="740" y="232" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594230187559" />
+-    <state x="784" y="238" width="539" height="619" key="git4idea.branch.GitSmartOperationDialog/72.27.1848.948@72.27.1848.948" timestamp="1597594628150" />
++    <state x="784" y="238" width="539" height="619" key="git4idea.branch.GitSmartOperationDialog/72.27.1848.948@72.27.1848.948" timestamp="1601818726541" />
+     <state x="790" y="310" key="svn.repositoryBrowser" timestamp="1594544194624">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -457,14 +449,4 @@
+     </state>
+     <state x="721" y="393" width="540" height="223" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1848.948@72.27.1848.948" timestamp="1596302663363" />
+   </component>
+-  <component name="XDebuggerManager">
+-    <breakpoint-manager>
+-      <breakpoints>
+-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+-          <url>file://$PROJECT_DIR$/every_day_notyfying.py</url>
+-          <option name="timeStamp" value="1" />
+-        </line-breakpoint>
+-      </breakpoints>
+-    </breakpoint-manager>
+-  </component>
+ </project>
+\ No newline at end of file
