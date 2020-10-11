@@ -48,7 +48,10 @@ def job(bot: Bot):
                                                       f'/music{yesterday_with_slash} - за занятие музыкой 🎸\n'
                                                       f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
                                                       f'/yoga{yesterday_with_slash} - за занятия йогой 👩‍❤️‍👨🏡\n'
-                                                      f'/voice{yesterday_with_slash} - за работу над голосом 🗣️\n'))
+                                                      f'/voice{yesterday_with_slash} - за работу над голосом 🗣️\n'
+                                                      f'/meditation{yesterday_with_slash} - за медитацию 💫️\n'
+
+                                                 ))
             # notifying = requests.get(
             #     api_link + f'/sendMessage?chat_id={user}&text=
             # )

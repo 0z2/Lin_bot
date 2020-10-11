@@ -11,5 +11,6 @@ from handlers.users.achievments.personal_care import dp
 from handlers.users.achievments.proper_nutrition import dp
 from handlers.users.achievments.yoga import dp
 from handlers.users.achievments.voice import dp
+from handlers.users.achievments.meditation import dp
 
 __all__ = ["dp"]
