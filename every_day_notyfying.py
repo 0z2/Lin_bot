@@ -7,7 +7,9 @@ import schedule
 import time
 from datetime import datetime, date, timedelta
 
-from work_with_gsheet import get_list_id_and_name_of_users
+# from work_with_gsheet import get_list_id_and_name_of_users
+from loader import db
+import sqlite3
 
 import asyncio
 
@@ -33,7 +35,10 @@ def job(bot: Bot):
     yesterday = date.today() - timedelta(days=1)
     yesterday_with_slash = yesterday.strftime("_%d_%m_%Y")
     yesterday_with_dots = yesterday.strftime("%d.%m.%Y")
-    users_id = run_async(bot.loop, get_list_id_and_name_of_users())
+    try:
+        users_id = db.select_all_users()
+    except sqlite3.IntegrityError as err:
+        print(err)
     for (user, *_) in users_id:
         try:
             run_async(bot.loop, bot.send_message(chat_id=user,
@@ -61,9 +66,9 @@ def job(bot: Bot):
 
 bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
 
-#schedule.every(0.1).minutes.do(job, bot=bot)
+schedule.every(0.1).minutes.do(job, bot=bot)
 # schedule.every().hour.do(job)
-schedule.every().day.at("10:00").do(job, bot=bot)
+#schedule.every().day.at("10:00").do(job, bot=bot)
 # schedule.every().monday.do(job)
 # schedule.every().wednesday.at("13:15").do(job)
 # schedule.every().minute.at(":17").do(job)

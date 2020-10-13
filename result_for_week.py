@@ -11,7 +11,10 @@ import time
 import asyncio
 
 from collections import Counter
-from work_with_gsheet import get_achievements_group_by_user_for_period, get_list_id_and_name_of_users
+from work_with_gsheet import get_achievements_group_by_user_for_period #get_list_id_and_name_of_users
+
+from loader import db
+import sqlite3
 
 def run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):
     return loop.run_until_complete(coro)
@@ -36,13 +39,19 @@ list_of_achievements = {'delicious_house': '👩‍❤️‍👨🏡 За вку
 # возможность просмотра за этот месяц и предыдущий
 def job(bot: Bot):
     try:
-        users_id_and_names = run_async(bot.loop, get_list_id_and_name_of_users())
-        print(users_id_and_names)
-        for (user_id, user_name) in users_id_and_names:
+        # users_id_and_names = run_async(bot.loop, get_list_id_and_name_of_users()) # список пользователей из гугл таблицы
+        try:
+            users_id_and_names  = db.select_all_users()
+            print(users_id_and_names)
+        except sqlite3.IntegrityError as err:
+            print(err)
+        for user_id, user_name, status in users_id_and_names:
             amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())
             try:
                 # у меня сейчас ачивки групируются по пользовательскому имени, а нужено переделать чтобы по id
                 # группировка осуществлялась
+                print(user_id)
+                print(user_name)
                 amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user_name]
                 amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)
                 # print('Пользователь', user[1])
@@ -60,9 +69,9 @@ def job(bot: Bot):
 
 bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
 
-#schedule.every(0.1).minutes.do(job, bot=bot)
+schedule.every(0.1).minutes.do(job, bot=bot)
 # schedule.every().hour.do(job)
-schedule.every().day.at("22:00").do(job, bot=bot)
+#schedule.every().day.at("22:00").do(job, bot=bot)
 # schedule.every().monday.do(job)
 #schedule.every().sunday.at("20:00").do(job)
 # schedule.every().minute.at(":17").do(job)
