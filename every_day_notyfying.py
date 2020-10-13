@@ -66,9 +66,9 @@ def job(bot: Bot):
 
 bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
 
-schedule.every(0.1).minutes.do(job, bot=bot)
+#schedule.every(0.1).minutes.do(job, bot=bot)
 # schedule.every().hour.do(job)
-#schedule.every().day.at("10:00").do(job, bot=bot)
+schedule.every().day.at("10:00").do(job, bot=bot)
 # schedule.every().monday.do(job)
 # schedule.every().wednesday.at("13:15").do(job)
 # schedule.every().minute.at(":17").do(job)
