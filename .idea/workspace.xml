@@ -75,7 +75,7 @@
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.result_for_week">
+  <component name="RunManager" selected="Python.every_day_notyfying">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -183,10 +183,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.every_day_notyfying" />
-        <item itemvalue="Python.sqlite" />
+        <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.app" />
+        <item itemvalue="Python.sqlite" />
         <item itemvalue="Python.work_with_gsheet" />
       </list>
     </recent_temporary>
