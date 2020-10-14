@@ -39,29 +39,30 @@ def job(bot: Bot):
         users_id = db.select_all_users()
     except sqlite3.IntegrityError as err:
         print(err)
-    for (user, *_) in users_id:
-        try:
-            run_async(bot.loop, bot.send_message(chat_id=user,
-                                                 text=f'Привет, заполним ачивки за {yesterday_with_dots}?\n'
-                                                      f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
-                                                      f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
-                                                      f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'
-                                                      f'/studying{yesterday_with_slash} - за учёбу 🎓\n'
-                                                      f'/health{yesterday_with_slash} - за занятие здоровьем 💊\n'
-                                                      f'/proper_nutrition{yesterday_with_slash} - полезная еда 🥙\n'
-                                                      f'/personal_care{yesterday_with_slash} - уход за собой 💆‍♀💇‍♂\n'
-                                                      f'/music{yesterday_with_slash} - за занятие музыкой 🎸\n'
-                                                      f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
-                                                      f'/yoga{yesterday_with_slash} - за занятия йогой 👩‍❤️‍👨🏡\n'
-                                                      f'/voice{yesterday_with_slash} - за работу над голосом 🗣️\n'
-                                                      f'/meditation{yesterday_with_slash} - за медитацию 💫️\n'
+    for user_id, user_name, status in users_id:
+        if status == 'active':
+            try:
+                run_async(bot.loop, bot.send_message(chat_id=user_id,
+                                                     text=f'Привет, заполним ачивки за {yesterday_with_dots}?\n'
+                                                          f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
+                                                          f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
+                                                          f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'
+                                                          f'/studying{yesterday_with_slash} - за учёбу 🎓\n'
+                                                          f'/health{yesterday_with_slash} - за занятие здоровьем 💊\n'
+                                                          f'/proper_nutrition{yesterday_with_slash} - полезная еда 🥙\n'
+                                                          f'/personal_care{yesterday_with_slash} - уход за собой 💆‍♀💇‍♂\n'
+                                                          f'/music{yesterday_with_slash} - за занятие музыкой 🎸\n'
+                                                          f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
+                                                          f'/yoga{yesterday_with_slash} - за занятия йогой 👩‍❤️‍👨🏡\n'
+                                                          f'/voice{yesterday_with_slash} - за работу над голосом 🗣️\n'
+                                                          f'/meditation{yesterday_with_slash} - за медитацию 💫️\n'
 
-                                                 ))
-            # notifying = requests.get(
-            #     api_link + f'/sendMessage?chat_id={user}&text=
-            # )
-        except Exception as err:
-            logging.exception(err)
+                                                     ))
+                # notifying = requests.get(
+                #     api_link + f'/sendMessage?chat_id={user}&text=
+                # )
+            except Exception as err:
+                logging.exception(err)
 
 
 bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)

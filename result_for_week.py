@@ -46,24 +46,25 @@ def job(bot: Bot):
         except sqlite3.IntegrityError as err:
             print(err)
         for user_id, user_name, status in users_id_and_names:
-            amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())
-            try:
-                # у меня сейчас ачивки групируются по пользовательскому имени, а нужено переделать чтобы по id
-                # группировка осуществлялась
-                print(user_id)
-                print(user_name)
-                amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user_name]
-                amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)
-                # print('Пользователь', user[1])
-                message = 'Привет, вот твои результаты за неделю!\n\n'
-                for name_of_achievement, amount_of_achievement in amount_of_achievements_of_user_for_the_week_count.items():
-                    message += (list_of_achievements[name_of_achievement] + ' - ' + str(amount_of_achievement) + '\n')
-                # print(message)
-                notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message}')
-                break  # для теста, чтобы отправилось только мне
-            except KeyError:
-                message_when_user_have_no_achievements = 'Привет, вот твои результаты за неделю!\n\n 🤨 Хм, так, секундочку... \n\n Ах тыж ленивая жопа! Ни одной ачивки за неделю! Ну-ка марш заполнять, а то получишь у меня! Гав!!!'
-                notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message_when_user_have_no_achievements}')
+            if status == 'active':
+                amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())
+                try:
+                    # у меня сейчас ачивки групируются по пользовательскому имени, а нужено переделать чтобы по id
+                    # группировка осуществлялась
+                    print(user_id)
+                    print(user_name)
+                    amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user_name]
+                    amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)
+                    # print('Пользователь', user[1])
+                    message = 'Привет, вот твои результаты за неделю!\n\n'
+                    for name_of_achievement, amount_of_achievement in amount_of_achievements_of_user_for_the_week_count.items():
+                        message += (list_of_achievements[name_of_achievement] + ' - ' + str(amount_of_achievement) + '\n')
+                    # print(message)
+                    notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message}')
+                    break  # для теста, чтобы отправилось только мне
+                except KeyError:
+                    message_when_user_have_no_achievements = 'Привет, вот твои результаты за неделю!\n\n 🤨 Хм, так, секундочку... \n\n Ах тыж ленивая жопа! Ни одной ачивки за неделю! Ну-ка марш заполнять, а то получишь у меня! Гав!!!'
+                    notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message_when_user_have_no_achievements}')
     except Exception as err:
         logging.exception(err)
 
