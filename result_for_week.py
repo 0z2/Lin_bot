@@ -47,6 +47,7 @@ def job(bot: Bot):
             print(err)
         for user_id, user_name, status in users_id_and_names:
             if status == 'active':
+                print(user_name)
                 amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())
                 try:
                     # у меня сейчас ачивки групируются по пользовательскому имени, а нужено переделать чтобы по id

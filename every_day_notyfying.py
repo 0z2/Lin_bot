@@ -42,6 +42,7 @@ def job(bot: Bot):
     for user_id, user_name, status in users_id:
         if status == 'active':
             try:
+                print(user_name)
                 run_async(bot.loop, bot.send_message(chat_id=user_id,
                                                      text=f'Привет, заполним ачивки за {yesterday_with_dots}?\n'
                                                           f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'

@@ -13,4 +13,6 @@ from handlers.users.achievments.yoga import dp
 from handlers.users.achievments.voice import dp
 from handlers.users.achievments.meditation import dp
 
+from handlers.users.echo import dp
+
 __all__ = ["dp"]
