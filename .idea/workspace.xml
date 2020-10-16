@@ -19,14 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="Всё что не обработано (сообщения) от пользователей теперь будут приходить.">
+    <list default="true" id="4e7dde31-ebc3-4552-bd9c-9bd05e678a1f" name="Default Changelist" comment="Отправка списка ачивок за вчера и сегодня по комманде">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/main.db" beforeDir="false" afterPath="$PROJECT_DIR$/data/main.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/every_day_notyfying.py" beforeDir="false" afterPath="$PROJECT_DIR$/every_day_notyfying.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/echo.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/others_not_get_in_handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/users/help.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/help.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/users/get_list_achievements.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/users/get_list_achievements.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +75,7 @@
       <recent name="C:\Users\Ozz\PycharmProjects\udemy_course\handlers\users" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.every_day_notyfying">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Lin_bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -187,8 +183,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.every_day_notyfying" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.tests" />
         <item itemvalue="Python.result_for_week" />
         <item itemvalue="Python.sqlite" />
@@ -361,7 +357,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602774714655</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Отправка списка ачивок за вчера и сегодня по комманде">
+      <created>1602875339131</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1602875339131</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Отправка списка ачивок за вчера и сегодня по комманде">
+      <created>1602875354562</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1602875354562</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,7 +407,8 @@
     <MESSAGE value="more info when somobody get in base" />
     <MESSAGE value="notification only for active users" />
     <MESSAGE value="Всё что не обработано (сообщения) от пользователей теперь будут приходить." />
-    <option name="LAST_COMMIT_MESSAGE" value="Всё что не обработано (сообщения) от пользователей теперь будут приходить." />
+    <MESSAGE value="Отправка списка ачивок за вчера и сегодня по комманде" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отправка списка ачивок за вчера и сегодня по комманде" />
   </component>
   <component name="WindowStateProjectService">
     <state x="625" y="182" width="732" height="644" key="#Inspections" timestamp="1596302104442">
@@ -430,29 +441,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="784" y="438" key="Github.CreateGistDialog/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594543295593" />
-    <state width="1532" height="131" key="GridCell.Tab.0.bottom" timestamp="1602874991396">
+    <state width="1532" height="131" key="GridCell.Tab.0.bottom" timestamp="1602875418000">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1532" height="131" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1602874991396" />
+    <state width="1532" height="131" key="GridCell.Tab.0.bottom/72.27.1848.948@72.27.1848.948" timestamp="1602875418000" />
     <state width="863" height="227" key="GridCell.Tab.0.bottom/72.27.886.939@72.27.886.939" timestamp="1602443942282" />
-    <state width="1532" height="131" key="GridCell.Tab.0.center" timestamp="1602874991396">
+    <state width="1532" height="131" key="GridCell.Tab.0.center" timestamp="1602875418000">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.center/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1532" height="131" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1602874991396" />
+    <state width="1532" height="131" key="GridCell.Tab.0.center/72.27.1848.948@72.27.1848.948" timestamp="1602875418000" />
     <state width="863" height="227" key="GridCell.Tab.0.center/72.27.886.939@72.27.886.939" timestamp="1602443942279" />
-    <state width="1532" height="131" key="GridCell.Tab.0.left" timestamp="1602874991396">
+    <state width="1532" height="131" key="GridCell.Tab.0.left" timestamp="1602875418000">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.left/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1532" height="131" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1602874991396" />
+    <state width="1532" height="131" key="GridCell.Tab.0.left/72.27.1848.948@72.27.1848.948" timestamp="1602875418000" />
     <state width="863" height="227" key="GridCell.Tab.0.left/72.27.886.939@72.27.886.939" timestamp="1602443942275" />
-    <state width="1532" height="131" key="GridCell.Tab.0.right" timestamp="1602874991396">
+    <state width="1532" height="131" key="GridCell.Tab.0.right" timestamp="1602875418000">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state width="1898" height="277" key="GridCell.Tab.0.right/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594522503000" />
-    <state width="1532" height="131" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1602874991396" />
+    <state width="1532" height="131" key="GridCell.Tab.0.right/72.27.1848.948@72.27.1848.948" timestamp="1602875418000" />
     <state width="863" height="227" key="GridCell.Tab.0.right/72.27.886.939@72.27.886.939" timestamp="1602443942280" />
     <state width="912" height="298" key="GridCell.Tab.1.bottom" timestamp="1602736326602">
       <screen x="72" y="27" width="1848" height="948" />
@@ -488,11 +499,11 @@
     </state>
     <state x="461" y="229" key="SettingsEditor/0.0.1920.1040/-1680.0.1680.1050@0.0.1920.1040" timestamp="1594544498681" />
     <state x="516" y="236" width="1022" height="737" key="SettingsEditor/72.27.1848.948@72.27.1848.948" timestamp="1596303583851" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602774718245">
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1602875358036">
       <screen x="72" y="27" width="1848" height="948" />
     </state>
     <state x="432" y="237" key="Vcs.Push.Dialog.v2/0.0.1680.1010@0.0.1680.1010" timestamp="1595782157137" />
-    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1602774718245" />
+    <state x="547" y="249" width="800" height="535" key="Vcs.Push.Dialog.v2/72.27.1848.948@72.27.1848.948" timestamp="1602875358036" />
     <state x="812" y="422" width="428" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596300693511">
       <screen x="72" y="27" width="1848" height="948" />
     </state>

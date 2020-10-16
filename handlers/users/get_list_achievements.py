@@ -8,7 +8,7 @@ def message_with_achievements(day=1):
     yesterday = date.today() - timedelta(days=day)
     yesterday_with_slash = yesterday.strftime("_%d_%m_%Y")
     yesterday_with_dots = yesterday.strftime("%d.%m.%Y")
-    return (f'Привет, заполним ачивки за {yesterday_with_dots}?\n'
+    return (f'Заполним ачивки за {yesterday_with_dots}?\n'
             f'/work{yesterday_with_slash} - за хорошую работу 🛠\n'
             f'/sport{yesterday_with_slash} - за занятия спортом 🏋🏻‍♀️🏋🏻\n'
             f'/language{yesterday_with_slash} - за изучение языков 🇺🇸\n'

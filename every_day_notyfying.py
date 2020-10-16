@@ -31,6 +31,7 @@ def job(bot: Bot):
                 run_async(bot.loop, bot.send_message(chat_id=user_id,
                                                      text=message_with_achievements()
                                                      ))
+                break
                 # notifying = requests.get(
                 #     api_link + f'/sendMessage?chat_id={user}&text=
                 # )
