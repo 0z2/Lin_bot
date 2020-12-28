@@ -1,0 +1,130 @@
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1/shelved.patch	
++++ /dev/null	
+@@ -1,111 +0,0 @@
+-Index: result_for_week.py
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import requests\nfrom data.config import api_link\nfrom typing import Optional, Union\nfrom aiogram import Bot, types\nimport logging\n\nimport schedule\nimport time\n\n\nimport asyncio\n\nfrom collections import Counter\nfrom work_with_gsheet import get_achievements_group_by_user_for_period, get_list_id_and_name_of_users\n\ndef run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):\n    return loop.run_until_complete(coro)\n\nlist_of_achievements = {'delicious_house': '\uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1 За вкусный дом',\n                        'health': '\uD83D\uDC8A За занятие здоровьем',\n                        'language': '\uD83C\uDDFA\uD83C\uDDF8 За изучение языков',\n                        'music': '\uD83C\uDFB8 За занятие музыкой',\n                        'personal_care': '\uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂ За уход за собой',\n                        'proper_nutrition': '\uD83E\uDD59 За правильное питание',\n                        'sport': '\uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB За занятия спортом',\n                        'studying': '\uD83C\uDF93 За учёбу',\n                        'work': '\uD83D\uDEE0 За хорошую работу',\n                        'yoga': '\uD83E\uDDD8\u200D♂️За занятия йогой',\n                        'voice': '\uD83D\uDDE3️ за работу над голосом',\n                        'meditation': '\uD83D\uDCAB за медитацию'\n                        }\n\n# тут нужно добавить возможность перидать либо за неделю, либо за месяц и добавить два вызова, что бы одном случае\n# писалось за неделю, а во втором за месяц\n# либо просто передачу кол-ва дней, чтобы далее пользователь сам мог запрашивать. Хотя для пользователя лучше сделать\n# возможность просмотра за этот месяц и предыдущий\ndef job(bot: Bot):\n    try:\n        users_id_and_names = run_async(bot.loop, get_list_id_and_name_of_users())\n        print(users_id_and_names)\n        for (user_id, user_name) in users_id_and_names:\n            amount_of_achievements_of_users_for_the_week_list = run_async(bot.loop, get_achievements_group_by_user_for_period())\n            try:\n                # у меня сейчас ачивки групируются по пользовательскому имени, а нужено переделать чтобы по id\n                # группировка осуществлялась\n                amount_of_achievements_of_user_for_the_week = amount_of_achievements_of_users_for_the_week_list[user_name]\n                amount_of_achievements_of_user_for_the_week_count = Counter(amount_of_achievements_of_user_for_the_week)\n                # print('Пользователь', user[1])\n                message = 'Привет, вот твои результаты за неделю!\\n\\n'\n                for name_of_achievement, amount_of_achievement in amount_of_achievements_of_user_for_the_week_count.items():\n                    message += (list_of_achievements[name_of_achievement] + ' - ' + str(amount_of_achievement) + '\\n')\n                # print(message)\n                notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message}')\n                break  # для теста, чтобы отправилось только мне\n            except KeyError:\n                message_when_user_have_no_achievements = 'Привет, вот твои результаты за неделю!\\n\\n \uD83E\uDD28 Хм, так, секундочку... \\n\\n Ах тыж ленивая жопа! Ни одной ачивки за неделю! Ну-ка марш заполнять, а то получишь у меня! Гав!!!'\n                notifying = requests.get(api_link + f'/sendMessage?chat_id={user_id}&text={message_when_user_have_no_achievements}')\n    except Exception as err:\n        logging.exception(err)\n\nbot = Bot(token=\"1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y\", parse_mode=types.ParseMode.HTML)\n\n#schedule.every(0.1).minutes.do(job, bot=bot)\n# schedule.every().hour.do(job)\nschedule.every().day.at(\"22:00\").do(job, bot=bot)\n# schedule.every().monday.do(job)\n#schedule.every().sunday.at(\"20:00\").do(job)\n# schedule.every().minute.at(\":17\").do(job)\n\nwhile True:\n    schedule.run_pending()\n    time.sleep(0.1)\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- result_for_week.py	(revision f9dcf33837ecd5060082552b33e0ea070eabca7b)
+-+++ result_for_week.py	(date 1602605939303)
+-@@ -60,13 +60,13 @@
+- 
+- bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
+- 
+--#schedule.every(0.1).minutes.do(job, bot=bot)
+-+schedule.every(0.1).minutes.do(job, bot=bot)
+- # schedule.every().hour.do(job)
+--schedule.every().day.at("22:00").do(job, bot=bot)
+-+# schedule.every().day.at("22:00").do(job, bot=bot)
+- # schedule.every().monday.do(job)
+- #schedule.every().sunday.at("20:00").do(job)
+- # schedule.every().minute.at(":17").do(job)
+- 
+- while True:
+-     schedule.run_pending()
+--    time.sleep(0.1)
+-+    time.sleep(1)
+-Index: every_day_notyfying.py
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import logging\nfrom typing import Optional, Union\n\nfrom aiogram import Bot, types\n\nimport schedule\nimport time\nfrom datetime import datetime, date, timedelta\n\nfrom work_with_gsheet import get_list_id_and_name_of_users\n\nimport asyncio\n\n\ndef run_async(loop: Optional[Union[asyncio.BaseEventLoop, asyncio.AbstractEventLoop]], coro):\n    return loop.run_until_complete(coro)\n\nlist_of_achievements = {'delicious_house': '/delicious_house{yesterday_with_slash} - за вкусный дом \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n',\n                        'health': '/health{yesterday_with_slash} - за занятие здоровьем \uD83D\uDC8A\\n',\n                        'language': '/language{yesterday_with_slash} - за изучение языков \uD83C\uDDFA\uD83C\uDDF8\\n',\n                        'music': '/music{yesterday_with_slash} - за занятие музыкой \uD83C\uDFB8\\n',\n                        'personal_care': '/personal_care{yesterday_with_slash} - уход за собой \uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂\\n',\n                        'proper_nutrition': '/proper_nutrition{yesterday_with_slash} - полезная еда \uD83E\uDD59\\n',\n                        'sport': '/sport{yesterday_with_slash} - за занятия спортом \uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB\\n',\n                        'studying': '/studying{yesterday_with_slash} - за учёбу \uD83C\uDF93\\n',\n                        'work': '/work{yesterday_with_slash} - за хорошую работу \uD83D\uDEE0\\n',\n                        'yoga': '/yoga{yesterday_with_slash} - за занятия йогой \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n',\n                        'voice': '/voice{yesterday_with_slash} - за работу над голосом \uD83D\uDDE3️\\n',\n                        }\n\ndef job(bot: Bot):\n    print(\"I'm working...\")\n    yesterday = date.today() - timedelta(days=1)\n    yesterday_with_slash = yesterday.strftime(\"_%d_%m_%Y\")\n    yesterday_with_dots = yesterday.strftime(\"%d.%m.%Y\")\n    users_id = run_async(bot.loop, get_list_id_and_name_of_users())\n    for (user, *_) in users_id:\n        try:\n            run_async(bot.loop, bot.send_message(chat_id=user,\n                                                 text=f'Привет, заполним ачивки за {yesterday_with_dots}?\\n'\n                                                      f'/work{yesterday_with_slash} - за хорошую работу \uD83D\uDEE0\\n'\n                                                      f'/sport{yesterday_with_slash} - за занятия спортом \uD83C\uDFCB\uD83C\uDFFB\u200D♀️\uD83C\uDFCB\uD83C\uDFFB\\n'\n                                                      f'/language{yesterday_with_slash} - за изучение языков \uD83C\uDDFA\uD83C\uDDF8\\n'\n                                                      f'/studying{yesterday_with_slash} - за учёбу \uD83C\uDF93\\n'\n                                                      f'/health{yesterday_with_slash} - за занятие здоровьем \uD83D\uDC8A\\n'\n                                                      f'/proper_nutrition{yesterday_with_slash} - полезная еда \uD83E\uDD59\\n'\n                                                      f'/personal_care{yesterday_with_slash} - уход за собой \uD83D\uDC86\u200D♀\uD83D\uDC87\u200D♂\\n'\n                                                      f'/music{yesterday_with_slash} - за занятие музыкой \uD83C\uDFB8\\n'\n                                                      f'/delicious_house{yesterday_with_slash} - за вкусный дом \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n'\n                                                      f'/yoga{yesterday_with_slash} - за занятия йогой \uD83D\uDC69\u200D❤️\u200D\uD83D\uDC68\uD83C\uDFE1\\n'\n                                                      f'/voice{yesterday_with_slash} - за работу над голосом \uD83D\uDDE3️\\n'\n                                                      f'/meditation{yesterday_with_slash} - за медитацию \uD83D\uDCAB️\\n'\n\n                                                 ))\n            # notifying = requests.get(\n            #     api_link + f'/sendMessage?chat_id={user}&text=\n            # )\n        except Exception as err:\n            logging.exception(err)\n\n\nbot = Bot(token=\"1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y\", parse_mode=types.ParseMode.HTML)\n\n#schedule.every(0.1).minutes.do(job, bot=bot)\n# schedule.every().hour.do(job)\nschedule.every().day.at(\"10:00\").do(job, bot=bot)\n# schedule.every().monday.do(job)\n# schedule.every().wednesday.at(\"13:15\").do(job)\n# schedule.every().minute.at(\":17\").do(job)\n\nwhile True:\n    schedule.run_pending()\n    time.sleep(1)\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- every_day_notyfying.py	(revision f9dcf33837ecd5060082552b33e0ea070eabca7b)
+-+++ every_day_notyfying.py	(date 1602602750999)
+-@@ -7,7 +7,11 @@
+- import time
+- from datetime import datetime, date, timedelta
+- 
+--from work_with_gsheet import get_list_id_and_name_of_users
+-+# from work_with_gsheet import get_list_id_and_name_of_users # получение пользоватлей из гугл таблиц
+-+
+-+# получение пользователй из sqlite
+-+from loader import db
+-+import sqlite3
+- 
+- import asyncio
+- 
+-@@ -33,7 +37,13 @@
+-     yesterday = date.today() - timedelta(days=1)
+-     yesterday_with_slash = yesterday.strftime("_%d_%m_%Y")
+-     yesterday_with_dots = yesterday.strftime("%d.%m.%Y")
+--    users_id = run_async(bot.loop, get_list_id_and_name_of_users())
+-+    #  users_id = run_async(bot.loop, get_list_id_and_name_of_users()) # получение пользователя из гугл таблицы
+-+    try:
+-+        users_id = db.select_all_users()
+-+        print(users_id)
+-+    except sqlite3.IntegrityError as err:
+-+        print(err)
+-+
+-     for (user, *_) in users_id:
+-         try:
+-             run_async(bot.loop, bot.send_message(chat_id=user,
+-@@ -61,9 +71,9 @@
+- 
+- bot = Bot(token="1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y", parse_mode=types.ParseMode.HTML)
+- 
+--#schedule.every(0.1).minutes.do(job, bot=bot)
+-+schedule.every(0.1).minutes.do(job, bot=bot)
+- # schedule.every().hour.do(job)
+--schedule.every().day.at("10:00").do(job, bot=bot)
+-+# schedule.every().day.at("10:00").do(job, bot=bot)
+- # schedule.every().monday.do(job)
+- # schedule.every().wednesday.at("13:15").do(job)
+- # schedule.every().minute.at(":17").do(job)
+-Index: handlers/users/start.py
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>from aiogram import types\nfrom aiogram.dispatcher.filters.builtin import CommandStart\n\nfrom loader import dp, db\nimport sqlite3\n\n\n@dp.message_handler(CommandStart())\nasync def bot_start(message: types.Message):\n    #await message.answer(f'Привет, {message.from_user.full_name}! Чтобы узнать список доступных комманд напиши /help')\n    name = message.from_user.full_name\n    try:\n        db.add_user(id=message.from_user.id, name=name)\n    except sqlite3.IntegrityError as err:\n        print(err)\n\n    count_users = db.count_users()[0]\n    await message.answer(\n        \"\\n\".join([\n            f'Привет, {message.from_user.full_name}!',\n            'Ты был занесен в базу',\n            f'В базе <b>{count_users}</b> пользователей',\n        ])\n    )\n\n\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- handlers/users/start.py	(revision f9dcf33837ecd5060082552b33e0ea070eabca7b)
+-+++ handlers/users/start.py	(date 1602602112643)
+-@@ -7,7 +7,7 @@
+- 
+- @dp.message_handler(CommandStart())
+- async def bot_start(message: types.Message):
+--    #await message.answer(f'Привет, {message.from_user.full_name}! Чтобы узнать список доступных комманд напиши /help')
+-+    await message.answer(f'Привет, {message.from_user.full_name}! Чтобы узнать список доступных комманд напиши /help')
+-     name = message.from_user.full_name
+-     try:
+-         db.add_user(id=message.from_user.id, name=name)
+-Index: data/config.py
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+>import os\n\nimport asyncio\n\nfrom dotenv import load_dotenv\nfrom work_with_gsheet import get_list_id_and_name_of_users\n\nload_dotenv()\n\nBOT_TOKEN = os.getenv(\"BOT_TOKEN\")\nadmins = [\n    985485455\n]\n\n# for working notifications\napi_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'\n\nasync def id_and_name_of_users():\n    await asyncio.sleep(1)\n    users_id = await get_list_id_and_name_of_users()\n    return users_id\n\n\n\nip = os.getenv(\"ip\")\n\naiogram_redis = {\n    'host': ip,\n}\n\nredis = {\n    'address': (ip, 6379),\n    'encoding': 'utf8'\n}\n
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+---- data/config.py	(revision f9dcf33837ecd5060082552b33e0ea070eabca7b)
+-+++ data/config.py	(date 1602509840429)
+-@@ -13,7 +13,7 @@
+- ]
+- 
+- # for working notifications
+--api_link = 'https://api.telegram.org/bot1267986653:AAEIxXafABfUFDDapLsEyjvNkeQ-6126q8Y'
+-+api_link = 'https://api.telegram.org/bot1267986653:' + os.getenv('BOT_TOKEN')
+- 
+- async def id_and_name_of_users():
+-     await asyncio.sleep(1)
+Index: .idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020__21_19__Default_Changelist_1.xml
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020__21_19__Default_Changelist_1.xml b/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020__21_19__Default_Changelist_1.xml
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020__21_19__Default_Changelist_1.xml	
++++ /dev/null	
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1" date="1602606016812" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_13_10_2020,_21_19_[Default_Changelist]1/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 13.10.2020, 21:19 [Default Changelist]" />
+-</changelist>
+\ No newline at end of file

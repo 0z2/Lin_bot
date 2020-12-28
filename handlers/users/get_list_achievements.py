@@ -20,6 +20,7 @@ def message_with_achievements(day=1):
             f'/delicious_house{yesterday_with_slash} - за вкусный дом 👩‍❤️‍👨🏡\n'
             f'/yoga{yesterday_with_slash} - за занятия йогой 👩‍❤️‍👨🏡\n'
             f'/voice{yesterday_with_slash} - за работу над голосом 🗣️\n'
+            f'/reading{yesterday_with_slash} - пол часа чтения ️📖\n'
             f'/meditation{yesterday_with_slash} - за медитацию 💫️\n')
 
 days = {'/achievements_for_yesterday': 1, '/achievements_for_today': 0}
